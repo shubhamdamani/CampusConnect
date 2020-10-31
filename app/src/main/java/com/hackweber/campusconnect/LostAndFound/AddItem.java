@@ -54,9 +54,12 @@ public class AddItem extends AppCompatActivity {
         if(item_type==0)
         {
             itemCategory = "LostItems";
+            addItem.setText("Add lost item");
         }else{
             itemCategory="FoundItems";
+            addItem.setText("Add found item");
         }
+
 
         chooseImage.setOnClickListener(new View.OnClickListener() {
             @Override

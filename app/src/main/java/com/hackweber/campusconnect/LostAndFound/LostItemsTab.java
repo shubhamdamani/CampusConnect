@@ -43,13 +43,6 @@ public class LostItemsTab extends Fragment {
 
         itemList = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        layoutManager = new LinearLayoutManager(view.getContext());
-        recyclerViewLost = view.findViewById(R.id.lost_recylerView);
-        recyclerViewLost.setHasFixedSize(true);
-        adapter = new ItemAdapter(itemList,view.getContext());
-//        addItems = getView().findViewById(R.id.lost_and_found_add_items);
-//        recyclerViewLost.setAdapter(adapter);
-        fetchItems(item_Category);
 
 //        addItems.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -66,6 +59,11 @@ public class LostItemsTab extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
+        layoutManager = new LinearLayoutManager(view.getContext());
+        recyclerViewLost = view.findViewById(R.id.lost_recylerView);
+        recyclerViewLost.setHasFixedSize(true);
+        adapter = new ItemAdapter(itemList,view.getContext());
+        fetchItems(item_Category);
     }
 
     private void fetchItems(final String item_category) {
