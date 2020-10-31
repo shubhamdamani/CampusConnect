@@ -1,8 +1,4 @@
-package com.hackweber.campusconnect;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+package com.hackweber.campusconnect.ui;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,22 +12,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.hackweber.campusconnect.R;
 
 public class Login extends AppCompatActivity {
 
     private EditText email,pswd;
-    private String email_text,pswd_text;
     private Button login_btn;
     private TextView forgotPswd,signUp;
     private FirebaseAuth mAuth;
-    private String TAG = "Login_TAG";
+    private final String TAG = "Login_TAG";
 
 
     @Override
@@ -50,7 +49,7 @@ public class Login extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Login.this,SignUp.class);
+                Intent intent = new Intent(Login.this, SignUp.class);
                 startActivity(intent);
             }
         });
@@ -118,8 +117,8 @@ public class Login extends AppCompatActivity {
 
 
     private void LoginFunction() {
-        email_text = email.getText().toString();
-        pswd_text = pswd.getText().toString();
+        String email_text = email.getText().toString();
+        String pswd_text = pswd.getText().toString();
 
         mAuth.signInWithEmailAndPassword(email_text, pswd_text)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -128,7 +127,7 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
-                            Intent intent = new Intent(Login.this,MainActivity.class);
+                            Intent intent = new Intent(Login.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                         } else {

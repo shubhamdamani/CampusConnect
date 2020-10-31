@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect;
+package com.hackweber.campusconnect.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,14 +16,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.hackweber.campusconnect.R;
 
 public class SignUp extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText email,userName,userPswd,userCnfPswd;
     private Button signup_btn;
-    private String email_text,userName_text,pswd_text,cnfPswd_text;
-    private String TAG = "SignuP";
+    private final String TAG = "SignuP";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +45,10 @@ public class SignUp extends AppCompatActivity {
 
     private void SignUpFunction() {
 
-        email_text = email.getText().toString();
-        userName_text = userName.getText().toString();
-        pswd_text = userPswd.getText().toString();
-        cnfPswd_text = userCnfPswd.getText().toString();
+        String email_text = email.getText().toString();
+        String userName_text = userName.getText().toString();
+        String pswd_text = userPswd.getText().toString();
+        String cnfPswd_text = userCnfPswd.getText().toString();
         if(pswd_text.equals(cnfPswd_text))
         {
             mAuth.createUserWithEmailAndPassword(email_text, pswd_text)
@@ -62,7 +62,7 @@ public class SignUp extends AppCompatActivity {
                                 user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        Intent intent = new Intent(SignUp.this,Verification_page.class);
+                                        Intent intent = new Intent(SignUp.this, VerificationPage.class);
                                         startActivity(intent);
                                         finish();
                                     }
