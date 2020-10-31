@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.LostAndFound;
+package com.hackweber.campusconnect.ui.LostAndFound;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

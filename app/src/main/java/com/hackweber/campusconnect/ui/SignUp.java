@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect;
+package com.hackweber.campusconnect.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.hackweber.campusconnect.Models.UserInfo;
+import com.hackweber.campusconnect.R;
+import com.hackweber.campusconnect.model.UserInfo;
 
 public class SignUp extends AppCompatActivity {
 
@@ -72,7 +73,7 @@ public class SignUp extends AppCompatActivity {
                                 user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        Intent intent = new Intent(SignUp.this,Verification_page.class);
+                                        Intent intent = new Intent(SignUp.this, VerificationPage.class);
                                         startActivity(intent);
                                         finish();
                                     }

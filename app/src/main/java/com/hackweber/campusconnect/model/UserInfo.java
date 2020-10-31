@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.Models;
+package com.hackweber.campusconnect.model;
 
 public class UserInfo {
     private String userId,userEmail,userName,userPhone;

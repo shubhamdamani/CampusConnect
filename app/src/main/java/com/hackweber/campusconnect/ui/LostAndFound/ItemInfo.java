@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.LostAndFound;
+package com.hackweber.campusconnect.ui.LostAndFound;
 
 public class ItemInfo {
     private String itemId,userId,itemName,itemPlace,itemDate,itemDescription,itemContact,itemUri;

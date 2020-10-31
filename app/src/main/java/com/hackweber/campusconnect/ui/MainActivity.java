@@ -8,8 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.hackweber.campusconnect.Login;
-import com.hackweber.campusconnect.LostAndFound.lostAndFound;
+import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import com.hackweber.campusconnect.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, lostAndFound.class);
+                Intent intent = new Intent(MainActivity.this, LostAndFound.class);
                 startActivity(intent);
             }
         });

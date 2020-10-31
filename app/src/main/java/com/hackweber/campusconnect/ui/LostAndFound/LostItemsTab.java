@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.LostAndFound;
+package com.hackweber.campusconnect.ui.LostAndFound;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,7 +22,7 @@ import com.hackweber.campusconnect.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FoundItemsTab extends Fragment {
+public class LostItemsTab extends Fragment {
 
     private RecyclerView recyclerViewLost;
     private ItemAdapter adapter;
@@ -37,11 +37,9 @@ public class FoundItemsTab extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_found,container,false);
+        View view = inflater.inflate(R.layout.fragment_lost,container,false);
         itemList = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
-
         return view;
     }
 
@@ -49,9 +47,9 @@ public class FoundItemsTab extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        item_Category=view.getContext().getString(R.string.found_items);
+        item_Category=view.getContext().getString(R.string.lost_items);
         layoutManager = new LinearLayoutManager(view.getContext());
-        recyclerViewLost = view.findViewById(R.id.found_recylerView);
+        recyclerViewLost = view.findViewById(R.id.lost_recylerView);
         recyclerViewLost.setHasFixedSize(true);
         adapter = new ItemAdapter(itemList,view.getContext());
         fetchItems(item_Category);
@@ -76,5 +74,6 @@ public class FoundItemsTab extends Fragment {
             }
         });
     }
+
 }
 

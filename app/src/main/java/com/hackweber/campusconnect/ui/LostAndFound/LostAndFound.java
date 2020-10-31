@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.LostAndFound;
+package com.hackweber.campusconnect.ui.LostAndFound;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -9,7 +9,7 @@ import android.view.View;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.hackweber.campusconnect.R;
-public class lostAndFound extends AppCompatActivity {
+public class LostAndFound extends AppCompatActivity {
 
     private FloatingActionButton floatingActionButton;
     private TabsAdapter tabsAdapter;
@@ -33,7 +33,7 @@ public class lostAndFound extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(lostAndFound.this,AddItem.class);
+                Intent intent = new Intent(LostAndFound.this,AddItem.class);
                 intent.putExtra("type",tabLayout.getSelectedTabPosition());
                 startActivity(intent);
 

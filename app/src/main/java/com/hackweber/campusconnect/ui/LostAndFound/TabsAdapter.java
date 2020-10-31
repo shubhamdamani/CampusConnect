@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.LostAndFound;
+package com.hackweber.campusconnect.ui.LostAndFound;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
