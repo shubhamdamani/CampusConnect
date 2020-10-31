@@ -22,7 +22,7 @@ public class VerificationPage extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(VerificationPage.this,Login.class);
+                Intent intent = new Intent(VerificationPage.this, Login.class);
                 startActivity(intent);
                 finish();
             }

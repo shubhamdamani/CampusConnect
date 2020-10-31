@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.SignUp">
-
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +13,6 @@
         android:padding="20dp"
         android:layout_margin="10dp"
         android:id="@+id/signup_userName"></EditText>
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,10 +29,6 @@
         android:inputType="numberSigned"
         android:layout_margin="10dp"
         android:id="@+id/signup_phone"></EditText>
-
-
-
-
 
     <EditText
         android:layout_width="match_parent"

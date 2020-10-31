@@ -26,7 +26,6 @@ public class SignUp extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText email,userName,userPswd,userCnfPswd,userPhone;
     private Button signup_btn;
-    private String email_text,userName_text,pswd_text,cnfPswd_text,userPhone_text;
     private String TAG = "SignuP";
 
     @Override
@@ -42,18 +41,14 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
-
-
-
     }
 
     private void SignUpFunction() {
 
-        email_text = email.getText().toString();
-        userName_text = userName.getText().toString();
-        pswd_text = userPswd.getText().toString();
-        cnfPswd_text = userCnfPswd.getText().toString();
-        userPhone_text = userPhone.getText().toString();
+        String email_text = email.getText().toString();
+        String userName_text = userName.getText().toString();
+        String pswd_text = userPswd.getText().toString();
+        String cnfPswd_text = userCnfPswd.getText().toString();
         if(pswd_text.equals(cnfPswd_text))
         {
             mAuth.createUserWithEmailAndPassword(email_text, pswd_text)
@@ -64,7 +59,6 @@ public class SignUp extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(TAG, "createUserWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
-
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                                 DatabaseReference myRef = database.getReference("UserInfo");
                                 UserInfo userObj = new UserInfo(user.getUid(),email_text,userName_text,userPhone_text);
