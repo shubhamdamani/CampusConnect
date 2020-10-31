@@ -82,7 +82,7 @@ public class AddItem extends AppCompatActivity {
             final String itemId = System.currentTimeMillis()+"";
             if(mImageUri==null)
             {
-                ItemInfo obj = new ItemInfo(itemId,user.getUid(),itemName_text,itemPlace_text,itemDate_text,itemDescription_text,itemContactMe_text);
+                ItemInfo obj = new ItemInfo(itemId,user.getUid(),itemName_text,itemPlace_text,itemDate_text,itemDescription_text,itemContactMe_text,itemCategory);
                 databaseReference.child("LostAndFoundItems").child(itemCategory).child(itemId).setValue(obj);
                 Toast.makeText(getApplicationContext(),"Added",Toast.LENGTH_SHORT).show();
             }else{
@@ -96,7 +96,7 @@ public class AddItem extends AppCompatActivity {
                                         .addOnSuccessListener(new OnSuccessListener<Uri>() {
                                             @Override
                                             public void onSuccess(Uri uri) {
-                                                ItemInfo obj = new ItemInfo(itemId,user.getUid(),itemName_text,itemPlace_text,itemDate_text,itemDescription_text,itemContactMe_text,uri+"");
+                                                ItemInfo obj = new ItemInfo(itemId,user.getUid(),itemName_text,itemPlace_text,itemDate_text,itemDescription_text,itemContactMe_text,uri+"",itemCategory);
                                                 databaseReference.child("LostAndFoundItems").child(itemCategory).child(itemId).setValue(obj);
                                                 Toast.makeText(getApplicationContext(),"Added",Toast.LENGTH_SHORT).show();
                                             }
