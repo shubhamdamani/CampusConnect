@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.hackweber.campusconnect.R;
@@ -33,6 +34,37 @@ public class FoodOrderActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        bottomNavigationView.setBackground(null);
+        bottomNavigationView.getMenu().getItem(2).setEnabled(false);
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(2);
+        menuItem.setChecked(true);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch(item.getItemId())
+                {
+                    case R.id.home:
+                        Intent i=new Intent(FoodOrderActivity.this,MainActivity.class);
+                        startActivity(i);
+                    case R.id.lost_found:
+                        Intent i2=new Intent(FoodOrderActivity.this,MainActivity.class);
+                        startActivity(i2);
+//                    case R.id.order_food:
+//                        Intent i5=new Intent(MainActivity.this,FoodOrderActivity.class);
+//                        startActivity(i5);
+                    case R.id.report:
+                        Intent i3=new Intent(FoodOrderActivity.this,MainActivity.class);
+                        startActivity(i3);
+                    case R.id.profile:
+                        Intent i4=new Intent(FoodOrderActivity.this,MainActivity.class);
+                        startActivity(i4);
+
+                }
+                return false;
+            }
+        });
         //get current user
 //        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 

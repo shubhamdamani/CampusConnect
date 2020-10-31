@@ -17,16 +17,18 @@
         <activity
             android:name=".ui.FoodOrderActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar">
+
+        </activity>
+        <activity android:name=".ui.VerificationPage" />
+        <activity android:name=".ui.Login" />
+        <activity android:name=".ui.SignUp" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.VerificationPage" />
-        <activity android:name=".ui.Login" />
-        <activity android:name=".ui.SignUp" />
-        <activity android:name=".ui.MainActivity" />
     </application>
 
 </manifest>
