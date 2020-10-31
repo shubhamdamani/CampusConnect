@@ -1,17 +1,13 @@
 package com.hackweber.campusconnect.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,7 +17,6 @@ import com.hackweber.campusconnect.R;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    private Button btn;
 
     private FloatingActionButton fab;
     @Override
@@ -36,19 +31,11 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LostAndFound.class);
-                startActivity(intent);
-            }
-        });
 
     }
 
     private void init() {
         auth = FirebaseAuth.getInstance();
-        btn = findViewById(R.id.lost_and_found);
         fab=findViewById(R.id.order_food);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setBackground(null);

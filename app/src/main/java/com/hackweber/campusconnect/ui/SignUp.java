@@ -27,6 +27,7 @@ public class SignUp extends AppCompatActivity {
     private EditText email,userName,userPswd,userCnfPswd,userPhone;
     private Button signup_btn;
     private String TAG = "SignuP";
+    String email_text,userName_text,pswd_text,cnfPswd_text,userPhone_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +46,11 @@ public class SignUp extends AppCompatActivity {
 
     private void SignUpFunction() {
 
-        String email_text = email.getText().toString();
-        String userName_text = userName.getText().toString();
-        String pswd_text = userPswd.getText().toString();
-        String cnfPswd_text = userCnfPswd.getText().toString();
+        email_text = email.getText().toString();
+        userName_text = userName.getText().toString();
+        pswd_text = userPswd.getText().toString();
+        cnfPswd_text = userCnfPswd.getText().toString();
+        userPhone_text = userPhone.getText().toString();
         if(pswd_text.equals(cnfPswd_text))
         {
             mAuth.createUserWithEmailAndPassword(email_text, pswd_text)
