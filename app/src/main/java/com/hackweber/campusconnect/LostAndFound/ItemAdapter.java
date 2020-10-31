@@ -107,10 +107,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     intent.putExtra("itemId",itemId);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
-
                 }
             });
-
         }
         @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         private void showPopupMenu(View view)
