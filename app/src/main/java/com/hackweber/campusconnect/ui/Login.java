@@ -32,20 +32,21 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private final String TAG = "Login_TAG";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
-
+        if (mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(Login.this, MainActivity.class));
+            finish();
+        }
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LoginFunction();
             }
         });
-
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,7 +61,6 @@ public class Login extends AppCompatActivity {
 
             }
         });
-
 
     }
 

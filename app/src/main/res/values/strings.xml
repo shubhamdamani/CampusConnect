@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CampusConnect</string>
+    <string name="order_food">Order Food</string>
+    <string name="my_orders">My Orders</string>
+    <string name="cart">cart</string>
+    <string name="logout">Logout</string>
 </resources>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
+
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
@@ -27,5 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_order"
-        app:layout_anchor="@id/bottom_app_bar"/>
+        app:layout_anchor="@id/bottom_app_bar"
+        android:contentDescription="@string/order_food" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
