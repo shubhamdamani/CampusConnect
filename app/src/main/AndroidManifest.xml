@@ -10,14 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LostAndFound.AddItem"></activity>
-        <activity android:name=".LostAndFound.lostAndFound" />
+        <activity android:name=".LostAndFound.lostAndFound"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+        </activity>
         <activity android:name=".Verification_page" />
         <activity android:name=".Login" />
         <activity android:name=".SignUp" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
