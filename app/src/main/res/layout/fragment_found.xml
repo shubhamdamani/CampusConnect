@@ -44,14 +44,6 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentRight="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_margin="10dp"-->
-<!--        android:id="@+id/lost_and_found_add_items">-->
 
-<!--    </com.google.android.material.floatingactionbutton.FloatingActionButton>-->
 
 </LinearLayout>
