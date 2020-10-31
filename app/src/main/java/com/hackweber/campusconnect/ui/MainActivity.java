@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,12 +20,35 @@ import com.hackweber.campusconnect.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private FirebaseAuth auth;
+    private Button btn;
 
     private FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+        if(auth.getCurrentUser()==null)
+        {
+            Intent intent = new Intent(MainActivity.this, Login.class);
+            startActivity(intent);
+            finish();
+        }
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LostAndFound.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    private void init() {
+        auth = FirebaseAuth.getInstance();
+        btn = findViewById(R.id.lost_and_found);
         fab=findViewById(R.id.order_food);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setBackground(null);
@@ -48,9 +75,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.lost_found:
                         Intent i2=new Intent(MainActivity.this,MainActivity.class);
                         startActivity(i2);
-//                    case R.id.order_food:
-//                        Intent i5=new Intent(MainActivity.this,FoodOrderActivity.class);
-//                        startActivity(i5);
                     case R.id.report:
                         Intent i3=new Intent(MainActivity.this,MainActivity.class);
                         startActivity(i3);
@@ -62,6 +86,5 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 }

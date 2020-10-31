@@ -1,5 +1,9 @@
 package com.hackweber.campusconnect.ui;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,10 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,11 +27,11 @@ import com.hackweber.campusconnect.R;
 public class Login extends AppCompatActivity {
 
     private EditText email,pswd;
+    private String email_text,pswd_text;
     private Button login_btn;
     private TextView forgotPswd,signUp;
     private FirebaseAuth mAuth;
-    private final String TAG = "Login_TAG";
-
+    private String TAG = "Login_TAG";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,7 @@ public class Login extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Login.this, SignUp.class);
+                Intent intent = new Intent(Login.this,SignUp.class);
                 startActivity(intent);
             }
         });
@@ -58,11 +58,9 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showRecoverPasswordDialog();
-
             }
         });
-
-    }
+  }
 
 
     private void showRecoverPasswordDialog()
@@ -119,7 +117,6 @@ public class Login extends AppCompatActivity {
     private void LoginFunction() {
         String email_text = email.getText().toString();
         String pswd_text = pswd.getText().toString();
-
         mAuth.signInWithEmailAndPassword(email_text, pswd_text)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -136,8 +133,6 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-
-                        // ...
                     }
                 });
 

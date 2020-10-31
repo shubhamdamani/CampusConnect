@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">CampusConnect</string>
+    <string name="title_activity_lost_and_found">lostAndFound</string>
+    <string name="tab_text_1">Lost items</string>
+    <string name="tab_text_2">Found items</string>
+    <string name="found_items">FoundItems</string>
+    <string name="lost_items">LostItems</string>
     <string name="order_food">Order Food</string>
     <string name="my_orders">My Orders</string>
-    <string name="cart">cart</string>
+    <string name="cart">Cart</string>
     <string name="logout">Logout</string>
 </resources>
