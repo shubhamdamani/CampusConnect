@@ -16,13 +16,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.hackweber.campusconnect.Models.UserInfo;
 
 public class SignUp extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private EditText email,userName,userPswd,userCnfPswd;
+    private EditText email,userName,userPswd,userCnfPswd,userPhone;
     private Button signup_btn;
-    private String email_text,userName_text,pswd_text,cnfPswd_text;
+    private String email_text,userName_text,pswd_text,cnfPswd_text,userPhone_text;
     private String TAG = "SignuP";
 
     @Override
@@ -49,6 +52,7 @@ public class SignUp extends AppCompatActivity {
         userName_text = userName.getText().toString();
         pswd_text = userPswd.getText().toString();
         cnfPswd_text = userCnfPswd.getText().toString();
+        userPhone_text = userPhone.getText().toString();
         if(pswd_text.equals(cnfPswd_text))
         {
             mAuth.createUserWithEmailAndPassword(email_text, pswd_text)
@@ -59,6 +63,12 @@ public class SignUp extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(TAG, "createUserWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
+
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                DatabaseReference myRef = database.getReference("UserInfo");
+                                UserInfo userObj = new UserInfo(user.getUid(),email_text,userName_text,userPhone_text);
+                                myRef.child(user.getUid()).setValue(userObj);
+
                                 user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
@@ -82,6 +92,7 @@ public class SignUp extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         email = findViewById(R.id.signup_email);
         userName = findViewById(R.id.signup_userName);
+        userPhone = findViewById(R.id.signup_phone);
         userPswd = findViewById(R.id.signup_password);
         userCnfPswd = findViewById(R.id.signup_cnf_password);
         signup_btn = findViewById(R.id.signup_signup_btn);
