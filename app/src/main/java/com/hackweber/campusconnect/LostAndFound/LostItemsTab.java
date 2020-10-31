@@ -33,25 +33,15 @@ public class LostItemsTab extends Fragment {
     private FloatingActionButton addItems;
     private int item_type=0;
     //0 for lost 1 for found
-    private final String item_Category="LostItems";
+    private String item_Category;
     private DatabaseReference databaseReference;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lost,container,false);
-
         itemList = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
-//        addItems.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(LostItemsTab.this,AddItem.class);
-//                intent.putExtra("type",item_type);
-//                startActivity(intent);
-//            }
-//        });
         return view;
     }
 
@@ -59,6 +49,7 @@ public class LostItemsTab extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
+        item_Category=view.getContext().getString(R.string.lost_items);
         layoutManager = new LinearLayoutManager(view.getContext());
         recyclerViewLost = view.findViewById(R.id.lost_recylerView);
         recyclerViewLost.setHasFixedSize(true);
