@@ -13,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hackweber.campusconnect.R;
+import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,15 +60,19 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.home:
                         Intent i=new Intent(MainActivity.this,MainActivity.class);
                         startActivity(i);
+                        break;
                     case R.id.lost_found:
-                        Intent i2=new Intent(MainActivity.this,MainActivity.class);
+                        Intent i2=new Intent(MainActivity.this, LostAndFound.class);
                         startActivity(i2);
+                        break;
                     case R.id.report:
                         Intent i3=new Intent(MainActivity.this,MainActivity.class);
                         startActivity(i3);
+                        break;
                     case R.id.profile:
                         Intent i4=new Intent(MainActivity.this,MainActivity.class);
                         startActivity(i4);
+                        break;
 
                 }
                 return false;

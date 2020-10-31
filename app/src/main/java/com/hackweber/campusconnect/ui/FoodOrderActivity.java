@@ -21,6 +21,7 @@ import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.adapter.FoodAdapter;
 import com.hackweber.campusconnect.dao.StorageClass;
 import com.hackweber.campusconnect.model.FoodDetails;
+import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 
 public class FoodOrderActivity extends AppCompatActivity {
     private boolean backPressed ;
@@ -48,15 +49,15 @@ public class FoodOrderActivity extends AppCompatActivity {
                     case R.id.home:
                         Intent i=new Intent(FoodOrderActivity.this,MainActivity.class);
                         startActivity(i);
+                        break;
                     case R.id.lost_found:
-                        Intent i2=new Intent(FoodOrderActivity.this,MainActivity.class);
+                        Intent i2=new Intent(FoodOrderActivity.this, LostAndFound.class);
                         startActivity(i2);
-//                    case R.id.order_food:
-//                        Intent i5=new Intent(MainActivity.this,FoodOrderActivity.class);
-//                        startActivity(i5);
+                        break;
                     case R.id.report:
                         Intent i3=new Intent(FoodOrderActivity.this,MainActivity.class);
                         startActivity(i3);
+                        break;
                     case R.id.profile:
                         Intent i4=new Intent(FoodOrderActivity.this,MainActivity.class);
                         startActivity(i4);
