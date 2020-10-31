@@ -1,8 +1,10 @@
-package com.hackweber.campusconnect;
+package com.hackweber.campusconnect.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.hackweber.campusconnect.R;
 
 public class MainActivity extends AppCompatActivity {
 
