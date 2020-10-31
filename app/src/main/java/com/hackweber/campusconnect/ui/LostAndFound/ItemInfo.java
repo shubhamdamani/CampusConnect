@@ -1,12 +1,12 @@
 package com.hackweber.campusconnect.ui.LostAndFound;
 
 public class ItemInfo {
-    private String itemId,userId,itemName,itemPlace,itemDate,itemDescription,itemContact,itemUri;
+    private String itemId,userId,itemName,itemPlace,itemDate,itemDescription,itemContact,itemUri,itemCategory;
 
     public ItemInfo() {
     }
 
-    public ItemInfo(String itemId, String userId, String itemName, String itemPlace, String itemDate, String itemDescription, String itemContact) {
+    public ItemInfo(String itemId, String userId, String itemName, String itemPlace, String itemDate, String itemDescription, String itemContact, String itemCategory) {
         this.itemId = itemId;
         this.userId = userId;
         this.itemName = itemName;
@@ -14,9 +14,10 @@ public class ItemInfo {
         this.itemDate = itemDate;
         this.itemDescription = itemDescription;
         this.itemContact = itemContact;
+        this.itemCategory = itemCategory;
     }
 
-    public ItemInfo(String itemId, String userId, String itemName, String itemPlace, String itemDate, String itemDescription, String itemContact, String itemUri) {
+    public ItemInfo(String itemId, String userId, String itemName, String itemPlace, String itemDate, String itemDescription, String itemContact, String itemUri, String itemCategory) {
         this.itemId = itemId;
         this.userId = userId;
         this.itemName = itemName;
@@ -25,6 +26,15 @@ public class ItemInfo {
         this.itemDescription = itemDescription;
         this.itemContact = itemContact;
         this.itemUri = itemUri;
+        this.itemCategory = itemCategory;
+    }
+
+    public String getItemCategory() {
+        return itemCategory;
+    }
+
+    public void setItemCategory(String itemCategory) {
+        this.itemCategory = itemCategory;
     }
 
     public String getItemUri() {

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hackweber.campusconnect">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,24 +11,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.LostAndFound.AddItem"/>
-        <activity android:name=".ui.LostAndFound.LostAndFound"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
-        <activity android:name=".ui.CartActivity"/>
-        <activity android:name=".ui.MyOrders"/>
-        <activity android:name=".ui.SelectedFood"/>
+        <activity android:name=".ui.LostAndFound.ItemDetailActivity"/>
+        <activity android:name=".ui.LostAndFound.AddItem" />
+        <activity
+            android:name=".ui.LostAndFound.LostAndFound"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity android:name=".ui.CartActivity" />
+        <activity android:name=".ui.MyOrders" />
+        <activity android:name=".ui.SelectedFood" />
         <activity
             android:name=".ui.FoodOrderActivity"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"/>
         <activity android:name=".ui.VerificationPage" />
         <activity android:name=".ui.Login" />
         <activity android:name=".ui.SignUp" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
