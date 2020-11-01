@@ -12,19 +12,13 @@
         android:layout_marginBottom="100dp"
 
         >
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ADMIN PANEL"
-            android:id="@+id/admin"
-            android:visibility="gone"
-    />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/main_notification_recyclerView"
-            android:layout_below="@id/admin"/>
+            />
 
 
 
