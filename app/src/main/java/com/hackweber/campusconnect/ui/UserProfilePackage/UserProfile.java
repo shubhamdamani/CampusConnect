@@ -13,6 +13,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -20,6 +22,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +37,10 @@ import com.google.firebase.storage.UploadTask;
 import com.hackweber.campusconnect.LoadingDialog;
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.model.UserInfo;
+import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
+import com.hackweber.campusconnect.ui.FoodOrderActivity;
+import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
+import com.hackweber.campusconnect.ui.MainActivity;
 import com.squareup.picasso.Picasso;
 
 public class UserProfile extends AppCompatActivity {
@@ -48,6 +56,7 @@ public class UserProfile extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 2;
     private String TAG="UserProfile_TAG";
     private Uri mImageUri;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +64,60 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
         init();
+        fab=findViewById(R.id.order_food);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(UserProfile.this,FoodOrderActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        bottomNavigationView.setBackground(null);
+        bottomNavigationView.getMenu().getItem(4).setEnabled(false);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i5=new Intent(UserProfile.this, FoodOrderActivity.class);
+//                startActivity(i5);
+//                finish();
+//            }
+//        });
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(4);
+        menuItem.setChecked(true);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch(item.getItemId())
+                {
+                    case R.id.home:
+                        Intent i=new Intent(UserProfile.this,MainActivity.class);
+                        startActivity(i);
+                        finish();
+                        break;
+                    case R.id.lost_found:
+                        Intent i2=new Intent(UserProfile.this, LostAndFound.class);
+                        startActivity(i2);
+                        finish();
+                        break;
+                    case R.id.report:
+                        Intent i3=new Intent(UserProfile.this, Cleanliness.class);
+                        startActivity(i3);
+                        finish();
+                        break;
+                    case R.id.profile:
+//                        Intent i4=new Intent(MainActivity.this, UserProfile.class);
+//                        startActivity(i4);
+//                        finish();
+                        break;
+
+                }
+                return false;
+            }
+        });
 
         editTextSetEnablity(false);
         loadingDialog.startLoadingDialog();
@@ -188,5 +251,6 @@ public class UserProfile extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
         storageReference= FirebaseStorage.getInstance().getReference();
+
     }
 }

@@ -13,8 +13,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.hackweber.campusconnect.R;
+import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.FoodOrderActivity;
 import com.hackweber.campusconnect.ui.MainActivity;
+import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
 
 public class LostAndFound extends AppCompatActivity {
 
@@ -44,6 +46,7 @@ public class LostAndFound extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i5=new Intent(LostAndFound.this, FoodOrderActivity.class);
                 startActivity(i5);
+                finish();
             }
         });
 
@@ -58,18 +61,21 @@ public class LostAndFound extends AppCompatActivity {
                     case R.id.home:
                         Intent i=new Intent(LostAndFound.this,MainActivity.class);
                         startActivity(i);
+                        finish();
                         break;
                     case R.id.lost_found:
 //                        Intent i2=new Intent(LostAndFound.this, LostAndFound.class);
 //                        startActivity(i2);
                         break;
                     case R.id.report:
-                        Intent i3=new Intent(LostAndFound.this,MainActivity.class);
+                        Intent i3=new Intent(LostAndFound.this, Cleanliness.class);
                         startActivity(i3);
+                        finish();
                         break;
                     case R.id.profile:
-                        Intent i4=new Intent(LostAndFound.this,MainActivity.class);
+                        Intent i4=new Intent(LostAndFound.this, UserProfile.class);
                         startActivity(i4);
+                        finish();
                         break;
 
                 }

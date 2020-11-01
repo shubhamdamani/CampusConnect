@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
                 switch(item.getItemId())
                 {
                     case R.id.home:
-                        Intent i=new Intent(MainActivity.this,MainActivity.class);
-                        startActivity(i);
-                        finish();
+//                        Intent i=new Intent(MainActivity.this,MainActivity.class);
+//                        startActivity(i);
+//                        finish();
                         break;
                     case R.id.lost_found:
                         Intent i2=new Intent(MainActivity.this, LostAndFound.class);

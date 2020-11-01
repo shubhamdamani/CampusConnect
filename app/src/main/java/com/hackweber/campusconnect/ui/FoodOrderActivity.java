@@ -21,7 +21,9 @@ import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.adapter.FoodAdapter;
 import com.hackweber.campusconnect.dao.StorageClass;
 import com.hackweber.campusconnect.model.FoodDetails;
+import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
+import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
 
 public class FoodOrderActivity extends AppCompatActivity {
     private boolean backPressed ;
@@ -55,11 +57,11 @@ public class FoodOrderActivity extends AppCompatActivity {
                         startActivity(i2);
                         break;
                     case R.id.report:
-                        Intent i3=new Intent(FoodOrderActivity.this,MainActivity.class);
+                        Intent i3=new Intent(FoodOrderActivity.this, Cleanliness.class);
                         startActivity(i3);
                         break;
                     case R.id.profile:
-                        Intent i4=new Intent(FoodOrderActivity.this,MainActivity.class);
+                        Intent i4=new Intent(FoodOrderActivity.this, UserProfile.class);
                         startActivity(i4);
 
                 }
