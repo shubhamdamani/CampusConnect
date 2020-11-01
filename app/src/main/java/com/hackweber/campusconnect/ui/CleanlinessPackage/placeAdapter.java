@@ -42,6 +42,7 @@ public class placeAdapter extends RecyclerView.Adapter<placeAdapter.PlaceViewHol
         Picasso.get().load(Uri.parse(obj.getPlaceImg())).placeholder(R.mipmap.ic_launcher).into(holder.placeImage);
         holder.locality.setText(obj.getPlaceLocation());
         holder.placeId = obj.getPlaceId();
+        holder.description.setText(obj.getPlaceDescription());
     }
 
     public void setData(List<PlaceInfo> placesList){
@@ -56,7 +57,7 @@ public class placeAdapter extends RecyclerView.Adapter<placeAdapter.PlaceViewHol
     public class PlaceViewHolder extends RecyclerView.ViewHolder{
 
         public ImageView placeImage;
-        public TextView locality;
+        public TextView locality,description;
         public String placeId;
         public DatabaseReference databaseReference;
 
@@ -64,6 +65,7 @@ public class placeAdapter extends RecyclerView.Adapter<placeAdapter.PlaceViewHol
             super(itemView);
             placeImage = itemView.findViewById(R.id.raw_place_item_image);
             locality = itemView.findViewById(R.id.raw_place_item_locality);
+            description = itemView.findViewById(R.id.raw_place_item_description);
             databaseReference = FirebaseDatabase.getInstance().getReference();
 
             itemView.setOnClickListener(new View.OnClickListener() {

@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
-    android:layout_margin="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
 
@@ -24,7 +23,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:id="@+id/raw_lost_and_found_item_image"/>
@@ -32,6 +31,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
@@ -49,7 +49,6 @@
                     android:text="Place"
                     android:textSize="16dp"
                     android:id="@+id/raw_lost_and_found_item_itemPlace"/>
-
 
                 <TextView
                     android:layout_width="wrap_content"
