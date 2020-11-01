@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".practice.AddCanteen">
-        </activity>
+        <activity android:name=".ui.CanteenActivity"/>
+        <activity android:name=".practice.AddCanteen"/>
         <activity android:name=".ui.UserProfilePackage.UserProfile" />
         <activity android:name=".ui.CleanlinessPackage.placeDetail" />
         <activity android:name=".ui.CleanlinessPackage.AddPlaces" />

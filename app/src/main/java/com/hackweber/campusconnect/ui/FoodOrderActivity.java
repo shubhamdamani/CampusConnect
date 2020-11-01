@@ -29,10 +29,16 @@ public class FoodOrderActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
     private Toolbar toolbar;
+    private String canteenUID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_order);
+
+
+        Intent dataRetrieve = getIntent();
+        canteenUID = dataRetrieve.getStringExtra("uid");
+
         auth = FirebaseAuth.getInstance();
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -119,7 +125,7 @@ public class FoodOrderActivity extends AppCompatActivity {
                 break;
             case R.id.logout:
                 signOut();
-                Toast.makeText(this,"Signout",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Signed out",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.cart:
                 startActivity(new Intent(FoodOrderActivity.this,CartActivity.class));
