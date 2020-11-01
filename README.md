@@ -35,10 +35,7 @@ Android studio 3.0 or above and a Network connection
 4. After selecting a canteen User can view menu items of that canteens.
 5. User can then select the quantity to be ordered and place the order. User can select multiple food items in the same order.
 6. User can track orders using the My Orders page.
-6. Admin can push event notification to all the app users
-7. Admin can add a canteen.
-8. Admin can add different food items in a canteen.
-
+7. User can see the events that admin pushed and push notfication is sent.
 
 ## Libraries used
 
