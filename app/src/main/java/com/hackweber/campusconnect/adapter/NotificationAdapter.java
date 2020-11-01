@@ -80,7 +80,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                         context.startActivity(intent);
                     }else{
                         Intent intent = new Intent(context, eventDetail.class);
-                        intent.putExtra("body",body.getText().toString());
+                        intent.putExtra("body",categoryId);
                         intent.putExtra("title",title.getText().toString());
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
