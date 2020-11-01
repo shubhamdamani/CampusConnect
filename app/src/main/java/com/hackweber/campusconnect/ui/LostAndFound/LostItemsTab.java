@@ -21,6 +21,7 @@ import com.hackweber.campusconnect.LoadingDialog;
 import com.hackweber.campusconnect.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LostItemsTab extends Fragment {
@@ -64,10 +65,12 @@ public class LostItemsTab extends Fragment {
         databaseReference.child("LostAndFoundItems").child(item_category).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                itemList.clear();
                 for(DataSnapshot ds: dataSnapshot.getChildren()){
                     ItemInfo item = ds.getValue(ItemInfo.class);
                     itemList.add(item);
                 }
+                Collections.reverse(itemList);
                 loadingDialog.DismissDialog();
                 recyclerViewLost.setLayoutManager(layoutManager);
                 recyclerViewLost.setAdapter(adapter);

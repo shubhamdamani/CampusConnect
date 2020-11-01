@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -60,6 +61,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.itemId = item.getItemId();
         holder.itemCategory = item.getItemCategory();
         holder.clientID = item.getUserId();
+
+        if(holder.clientID.equals(user.getUid()))
+        {
+            holder.menu.setVisibility(View.VISIBLE);
+        }else{
+            holder.menu.setVisibility(View.GONE);
+        }
+
     }
 
     public void setData(List<ItemInfo> itemList){
@@ -88,10 +97,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             user = FirebaseAuth.getInstance().getCurrentUser();
             databaseReference = FirebaseDatabase.getInstance().getReference();
 
-            if(!user.getUid().equals(clientID))
-            {
-                menu.setVisibility(View.GONE);
-            }
+
 
             menu.setOnClickListener(new View.OnClickListener() {
                 @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -109,7 +115,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     intent.putExtra("itemId",itemId);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
-
                 }
             });
 

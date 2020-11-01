@@ -68,7 +68,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:id="@+id/three_dot_menu"
-            android:src="@drawable/ic_more_vert"/>
+            android:src="@drawable/ic_more_vert"
+            app:tint="@color/black" />
     </RelativeLayout>
 
 
