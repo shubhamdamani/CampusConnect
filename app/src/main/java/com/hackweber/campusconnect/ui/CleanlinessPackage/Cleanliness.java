@@ -3,6 +3,7 @@ package com.hackweber.campusconnect.ui.CleanlinessPackage;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,10 +46,15 @@ public class Cleanliness extends AppCompatActivity {
     private LoadingDialog loadingDialog;
     private MenuItem search;
 
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cleanliness);
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Report");
+        setSupportActionBar(toolbar);
+        toolbar.setBackgroundColor(getResources().getColor(R.color.white));
 
         init();
         fab=findViewById(R.id.order_food);

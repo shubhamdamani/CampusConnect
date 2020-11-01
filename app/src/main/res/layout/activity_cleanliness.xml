@@ -7,9 +7,19 @@
     android:background="#F8F8F3"
     android:layout_height="match_parent"
     tools:context=".ui.CleanlinessPackage.Cleanliness">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+    </com.google.android.material.appbar.AppBarLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

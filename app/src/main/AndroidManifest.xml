@@ -13,7 +13,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.eventDetail"/>
         <activity android:name=".notifications.AdminPanel" />
-        <activity android:name=".ui.CanteenActivity"/>
+        <activity
+            android:name=".ui.CanteenActivity"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity android:name=".ui.UserProfilePackage.UserProfile" />
         <activity android:name=".ui.CleanlinessPackage.placeDetail" />
         <activity android:name=".ui.CleanlinessPackage.AddPlaces" />

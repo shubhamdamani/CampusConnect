@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private NotificationAdapter adapter;
     private List<NotificationsItem> list;
 
+    private Toolbar toolbar;
     private FloatingActionButton fab;
     private Button admin;
     private DatabaseReference databaseReference;
@@ -49,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Events");
+        toolbar.setBackgroundColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
         admin=findViewById(R.id.admin);
 
 
