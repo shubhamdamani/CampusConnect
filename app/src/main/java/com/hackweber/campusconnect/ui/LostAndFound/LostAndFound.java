@@ -13,9 +13,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.hackweber.campusconnect.R;
-import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
+import com.hackweber.campusconnect.ui.Cleanliness.Cleanliness;
+import com.hackweber.campusconnect.ui.FoodOrder.CanteenActivity;
 import com.hackweber.campusconnect.ui.MainActivity;
-import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
+import com.hackweber.campusconnect.ui.UserProfile.UserProfile;
 
 public class LostAndFound extends AppCompatActivity {
 

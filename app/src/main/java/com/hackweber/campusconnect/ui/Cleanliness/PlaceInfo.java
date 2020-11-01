@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.ui.CleanlinessPackage;
+package com.hackweber.campusconnect.ui.Cleanliness;
 
 public class PlaceInfo {
     private String placeId,placeLocation,placeDescription,date,placeImg;

@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.ui.CleanlinessPackage;
+package com.hackweber.campusconnect.ui.Cleanliness;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,7 +29,6 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hackweber.campusconnect.R;
-import com.hackweber.campusconnect.ui.LostAndFound.ItemInfo;
 import com.squareup.picasso.Picasso;
 
 public class AddPlaces extends AppCompatActivity {

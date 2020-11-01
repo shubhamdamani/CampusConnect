@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.ui.UserProfilePackage;
+package com.hackweber.campusconnect.ui.UserProfile;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,7 +36,8 @@ import com.hackweber.campusconnect.LoadingDialog;
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.model.UserInfo;
 import com.hackweber.campusconnect.notifications.AdminPanel;
-import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
+import com.hackweber.campusconnect.ui.Cleanliness.Cleanliness;
+import com.hackweber.campusconnect.ui.FoodOrder.CanteenActivity;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import com.hackweber.campusconnect.ui.MainActivity;
 import com.squareup.picasso.Picasso;

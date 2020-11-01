@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#f8f8f3"
-    tools:context=".ui.CleanlinessPackage.AddPlaces">
+    tools:context=".ui.Cleanliness.AddPlaces">
 
     <ScrollView
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.ui.CleanlinessPackage;
+package com.hackweber.campusconnect.ui.Cleanliness;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

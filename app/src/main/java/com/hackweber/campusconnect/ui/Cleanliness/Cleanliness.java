@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.ui.CleanlinessPackage;
+package com.hackweber.campusconnect.ui.Cleanliness;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +26,7 @@ import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.ui.FoodOrder.CanteenActivity;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import com.hackweber.campusconnect.ui.MainActivity;
-import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
+import com.hackweber.campusconnect.ui.UserProfile.UserProfile;
 
 import java.util.ArrayList;
 import java.util.Collections;

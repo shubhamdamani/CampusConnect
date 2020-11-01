@@ -18,10 +18,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.dao.CanteenStorage;
 import com.hackweber.campusconnect.model.Canteen;
-import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
+import com.hackweber.campusconnect.ui.Cleanliness.Cleanliness;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import com.hackweber.campusconnect.ui.MainActivity;
-import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
+import com.hackweber.campusconnect.ui.UserProfile.UserProfile;
 
 public class CanteenActivity extends AppCompatActivity {
     private Toolbar toolbar;
