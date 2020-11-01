@@ -37,6 +37,7 @@ import com.google.firebase.storage.UploadTask;
 import com.hackweber.campusconnect.LoadingDialog;
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.model.UserInfo;
+import com.hackweber.campusconnect.ui.CanteenActivity;
 import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.FoodOrderActivity;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
@@ -68,7 +69,7 @@ public class UserProfile extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(UserProfile.this,FoodOrderActivity.class);
+                Intent i=new Intent(UserProfile.this, CanteenActivity.class);
                 startActivity(i);
                 finish();
             }
