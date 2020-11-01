@@ -16,8 +16,8 @@ public class CanteenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_canteen);
         final GridView canteenGridView = findViewById(R.id.gridview_canteen);
         CanteenStorage canteenStorage = new CanteenStorage();
-        canteenStorage.fetchCanteensData();
-        canteenGridView.setAdapter(new CanteenAdapter(this,canteenStorage.getCanteensData()));
+        canteenStorage.setCanteensAdapter(canteenGridView,this);
+//        canteenGridView.setAdapter(new CanteenAdapter(this,canteenStorage.getCanteensData()));
     }
 
 }
