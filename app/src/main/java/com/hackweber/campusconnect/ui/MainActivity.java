@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseMessaging.getInstance().subscribeToTopic("lost");
         FirebaseMessaging.getInstance().subscribeToTopic("found");
+        FirebaseMessaging.getInstance().subscribeToTopic("events");
         init();
 
         if(auth.getCurrentUser()==null)

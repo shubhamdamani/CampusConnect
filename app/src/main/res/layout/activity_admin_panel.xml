@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".notifications.AdminPanel">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="50dp"
+        android:id="@+id/noCategory"
+        android:hint="add category"
+        android:textColorHint="#000000"
+
+        />
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:layout_below="@+id/noCategory"
+        android:id="@+id/noBody"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:hint="add description"
+        android:textColorHint="#000000"
+
+        />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/noBody"
+        android:id="@+id/sendNot"
+        android:text="send notification"
+        />
+
+
+</RelativeLayout>
