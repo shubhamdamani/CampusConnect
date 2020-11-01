@@ -37,37 +37,7 @@ public class FoodOrderActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-        bottomNavigationView.setBackground(null);
-        bottomNavigationView.getMenu().getItem(2).setEnabled(false);
-        Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(2);
-        menuItem.setChecked(true);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch(item.getItemId())
-                {
-                    case R.id.home:
-                        Intent i=new Intent(FoodOrderActivity.this,MainActivity.class);
-                        startActivity(i);
-                        break;
-                    case R.id.lost_found:
-                        Intent i2=new Intent(FoodOrderActivity.this, LostAndFound.class);
-                        startActivity(i2);
-                        break;
-                    case R.id.report:
-                        Intent i3=new Intent(FoodOrderActivity.this, Cleanliness.class);
-                        startActivity(i3);
-                        break;
-                    case R.id.profile:
-                        Intent i4=new Intent(FoodOrderActivity.this, UserProfile.class);
-                        startActivity(i4);
 
-                }
-                return false;
-            }
-        });
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
