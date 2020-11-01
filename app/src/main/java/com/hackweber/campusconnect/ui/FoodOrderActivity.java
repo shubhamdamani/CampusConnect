@@ -26,7 +26,6 @@ import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
 
 public class FoodOrderActivity extends AppCompatActivity {
-    private boolean backPressed ;
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
     private Toolbar toolbar;
@@ -69,25 +68,25 @@ public class FoodOrderActivity extends AppCompatActivity {
             }
         });
         //get current user
-//        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-//        authListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                FirebaseUser user = firebaseAuth.getCurrentUser();
-//
-//                if (user == null) {
-//                    // user auth state is changed - user is null
-//                    // launch login activity
-//                    startActivity(new Intent(FoodOrderActivity.this, Login.class));
-//                    finish();
-//                }
-//                else{
-//                    String name = user.getEmail();
-//                    //Toast.makeText(getApplicationContext(),name,Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        };
+        authListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                if (user == null) {
+                    // user auth state is changed - user is null
+                    // launch login activity
+                    startActivity(new Intent(FoodOrderActivity.this, Login.class));
+                    finish();
+                }
+                else{
+                    String name = user.getEmail();
+                    //Toast.makeText(getApplicationContext(),name,Toast.LENGTH_LONG).show();
+                }
+            }
+        };
         final GridView gridview = findViewById(R.id.gridview);
         StorageClass foodStorage = new StorageClass();
         foodStorage.setCatalogData();
@@ -118,8 +117,6 @@ public class FoodOrderActivity extends AppCompatActivity {
                 startActivity(intent);
                 //Toast.makeText(this,"Signout",Toast.LENGTH_SHORT).show();
                 break;
-
-
             case R.id.logout:
                 signOut();
                 Toast.makeText(this,"Signout",Toast.LENGTH_SHORT).show();
