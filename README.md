@@ -58,12 +58,12 @@ Android studio 3.0 or above and a Network connection
 ## ScreenShots
 
 <p>
-<img src="https://github.com/shubhamdamani/CampusConnect/edit/master/screenshots/Screenshot.png" alt="HomeActivity" height="400px">
-<img src="https://github.com/shubhamdamani/CampusConnect/edit/master/screenshots/Screenshot2.png" alt="Sales Prediction" height="400px">
-<img src="https://github.com/shubhamdamani/CampusConnect/edit/master/screenshots/Screenshot3.png" alt="Chat Support" height="400px">
-<img src="https://github.com/shubhamdamani/CampusConnect/edit/master/screenshots/Screenshot4.png" alt="Chat Support" height="400px">
-<img src="https://github.com/shubhamdamani/CampusConnect/edit/master/screenshots/Screenshot5.png" alt="Chat Support" height="400px">
-<img src="https://github.com/shubhamdamani/CampusConnect/edit/master/screenshots/Screenshot6.png" alt="Chat Support" height="400px">
+<img src="https://github.com/shubhamdamani/CampusConnect/blob/master/screenshots/Screenshot.png" alt="HomeActivity" height="400px">
+<img src="https://github.com/shubhamdamani/CampusConnect/blob/master/screenshots/Screenshot2.png" alt="Sales Prediction" height="400px">
+<img src="https://github.com/shubhamdamani/CampusConnect/blob/master/screenshots/Screenshot3.png" alt="Chat Support" height="400px">
+<img src="https://github.com/shubhamdamani/CampusConnect/blob/master/screenshots/Screenshot4.png" alt="Chat Support" height="400px">
+<img src="https://github.com/shubhamdamani/CampusConnect/blob/master/screenshots/Screenshot5.png" alt="Chat Support" height="400px">
+<img src="https://github.com/shubhamdamani/CampusConnect/blob/master/screenshots/Screenshot6.png" alt="Chat Support" height="400px">
 <p>
 
 ## Developers
