@@ -15,6 +15,7 @@ import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.model.NotificationsItem;
 import com.hackweber.campusconnect.ui.LostAndFound.ItemDetailActivity;
 import com.hackweber.campusconnect.ui.LostAndFound.ItemInfo;
+import com.hackweber.campusconnect.ui.eventDetail;
 
 import java.util.List;
 
@@ -78,7 +79,11 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                     }else{
-
+                        Intent intent = new Intent(context, eventDetail.class);
+                        intent.putExtra("body",body.getText().toString());
+                        intent.putExtra("title",title.getText().toString());
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
                     }
                 }
             });

@@ -148,6 +148,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 switch (menuItem.getItemId()) {
                     case R.id.delete:
                         databaseReference.child("LostAndFoundItems").child(itemCategory).child(itemId).removeValue();
+                        databaseReference.child("Notifications").child(itemId).removeValue();
                         return true;
                 }
                 return false;
