@@ -9,5 +9,6 @@
     <string name="my_orders">My Orders</string>
     <string name="cart">Cart</string>
     <string name="logout">Logout</string>
+    <string name="upload_item">Upload Item</string>
 
 </resources>

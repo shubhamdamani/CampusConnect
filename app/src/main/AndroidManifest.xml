@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.eventDetail"></activity>
         <activity android:name=".notifications.AdminPanel" />
+        <activity android:name=".ui.CanteenActivity"/>
         <activity android:name=".ui.UserProfilePackage.UserProfile" />
         <activity android:name=".ui.CleanlinessPackage.placeDetail" />
         <activity android:name=".ui.CleanlinessPackage.AddPlaces" />
@@ -34,7 +35,6 @@
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

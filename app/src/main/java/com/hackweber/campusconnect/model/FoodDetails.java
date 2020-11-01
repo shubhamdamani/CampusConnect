@@ -1,30 +1,32 @@
 package com.hackweber.campusconnect.model;
-import java.io.Serializable;
 
-public class FoodDetails implements Serializable {
-    private int price;
-    private String foodName;
-    private int foodImage;
+public class FoodDetails {
+
+    private String id;
+    private String price;
+    private String name;
+    private String url;
     private int foodQuantity;
 
-
-    public FoodDetails(int mPrice, String mFoodName, int mFoodImage){
+    public FoodDetails(){}
+    public FoodDetails(String id,String mPrice, String mFoodName, String mFoodImage){
+        this.id = id;
         price = mPrice;
-        foodName = mFoodName;
-        foodImage = mFoodImage;
+        name = mFoodName;
+        url = mFoodImage;
         foodQuantity = 0;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
-
-    public int getFoodImage() {
-        return foodImage;
+    public String getId() {return id;}
+    public String getUrl() {
+        return url;
     }
 
-    public String getFoodName() {
-        return foodName;
+    public String getName() {
+        return name;
     }
 
     public int getFoodQuantity() {

@@ -36,13 +36,14 @@ public class CartActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private DatabaseReference dbRef;
     String username;
+    private String canteenUID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+        canteenUID = getIntent().getStringExtra("uid");
         auth = FirebaseAuth.getInstance();
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
 
         if(user!=null){
             String userEmail = user.getEmail();
@@ -64,20 +65,19 @@ public class CartActivity extends AppCompatActivity {
                 int amount=0;
                 for(int i=0;i<storage.size();i++){
                     FoodDetails foodItem = storage.get(i);
-                    orderItems = orderItems+foodItem.getFoodQuantity()+" X "+foodItem.getFoodName()+" ,";
-                    amount = amount + foodItem.getFoodQuantity()*foodItem.getPrice();
+                    orderItems = orderItems+foodItem.getFoodQuantity()+" X "+foodItem.getName()+" ,";
+                    amount = amount + foodItem.getFoodQuantity()*Integer.parseInt(foodItem.getPrice());
 
                 }
                 String key = dbRef.push().getKey();
-                dbRef.child(key).setValue(new Order(orderItems,String.valueOf(amount),formattedDate)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                dbRef.child(key).setValue(new Order(orderItems,String.valueOf(amount),formattedDate,canteenUID)).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         storage.clear();
-                        startActivity(new Intent(CartActivity.this,FoodOrderActivity.class));
+                        startActivity(new Intent(CartActivity.this,FoodOrderActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra("uid",canteenUID));
                         finish();
                     }
                 });
-
             }
         });
         listview = (ListView) findViewById(R.id.custom_ListView);

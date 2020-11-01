@@ -12,7 +12,7 @@
         android:id="@+id/listimage"
         android:layout_width="80dp"
         android:layout_height="match_parent"
-        android:src="@drawable/burger" />
+        android:src="@drawable/ic_launcher_background" />
 
     <LinearLayout
         android:layout_width="250dp"
