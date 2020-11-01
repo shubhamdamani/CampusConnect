@@ -9,7 +9,7 @@ This is the user repository only.
 
 ### Prerequisites
 
-Android studio 3.0 or above and a Network connection
+Android studio 4.0 or above and a Network connection
 
 ## Getting Started
 
