@@ -7,7 +7,7 @@
         android:title="Lost Found"
         android:icon="@drawable/ic_lost_items"/>
     <item android:id="@+id/placeholder"
-        android:title="" />
+        android:title="Food" />
     <item android:id="@+id/report"
         android:title="Report"
         android:icon="@drawable/ic_report" />

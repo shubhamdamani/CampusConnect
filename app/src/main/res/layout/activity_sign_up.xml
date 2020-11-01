@@ -5,25 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.SignUp">
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:padding="20dp"
-        android:layout_margin="10dp"
-        android:id="@+id/signup_email"></EditText>
-
-
+    android:background="@color/background"
+    tools:context=".ui.Auth.SignUp">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="UserName"
         android:padding="20dp"
         android:layout_margin="10dp"
-        android:id="@+id/signup_userName"></EditText>
+        android:id="@+id/signup_userName"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:id="@+id/signup_email"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone No"
+        android:padding="20dp"
+        android:inputType="numberSigned"
+        android:layout_margin="10dp"
+        android:id="@+id/signup_phone"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -32,7 +38,7 @@
         android:hint="Password"
         android:padding="20dp"
         android:layout_margin="10dp"
-        android:id="@+id/signup_password"></EditText>
+        android:id="@+id/signup_password"/>
 
 
     <EditText
@@ -42,7 +48,7 @@
         android:hint="Confirm Password"
         android:padding="20dp"
         android:layout_margin="10dp"
-        android:id="@+id/signup_cnf_password"></EditText>
+        android:id="@+id/signup_cnf_password"/>
 
     <Button
         android:layout_width="match_parent"
@@ -50,7 +56,7 @@
         android:padding="20dp"
         android:text="SignUp"
         android:layout_margin="10dp"
-        android:id="@+id/signup_signup_btn"></Button>
+        android:id="@+id/signup_signup_btn"/>
 
 
 

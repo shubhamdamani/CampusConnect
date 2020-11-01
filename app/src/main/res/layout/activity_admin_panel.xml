@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f8f3"
+
+    tools:context=".notifications.AdminPanel">
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/noCategory"
+        android:textColor="#000000"
+        android:hint="add title"
+        android:textColorHint="#000000"
+
+        />
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:background="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/noCategory"
+        android:id="@+id/noBody"
+        android:layout_marginTop="20dp"
+        android:hint="add description"
+        android:textColorHint="#000000"
+        android:textColor="#000000"
+
+        />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/noBody"
+        android:id="@+id/sendNot"
+        android:layout_centerHorizontal="true"
+        android:text="send notification"
+        />
+
+
+</RelativeLayout>

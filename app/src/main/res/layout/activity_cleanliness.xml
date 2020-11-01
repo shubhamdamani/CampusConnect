@@ -4,10 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#F8F8F3"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#F8F8F8"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.CleanlinessPackage.Cleanliness">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -20,26 +19,32 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="100dp"
-        android:layout_marginTop="50dp"
-        >
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ADMIN PANEL"
-            android:id="@+id/admin"
-            android:visibility="gone"
-    />
+        android:layout_marginTop="50dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/main_notification_recyclerView"
-            android:layout_below="@id/admin"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cleanliness_search_recyclerView"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cleanliness_search_recyclerView"
+        android:id="@+id/cleanliness_recyclerView"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="65dp"
+        android:src="@drawable/ic_add"
+        android:id="@+id/cleanliness_add_places">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
     </RelativeLayout>
-
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
@@ -64,4 +69,6 @@
         android:src="@drawable/ic_order"
         app:layout_anchor="@id/bottom_app_bar"
         android:contentDescription="@string/order_food" />
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
