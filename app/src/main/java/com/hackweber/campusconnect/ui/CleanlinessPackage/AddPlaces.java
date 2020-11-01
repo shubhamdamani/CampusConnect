@@ -72,9 +72,14 @@ public class AddPlaces extends AppCompatActivity {
         if(mImageUri!=null)
         {
             final String placeId = System.currentTimeMillis()+"";
-            final String placeLocation = location.getText().toString();
-            final String placeDescription = description.getText().toString();
-            final String placeDate = date.getText().toString();
+            final String placeLocation = location.getText().toString().trim();
+            final String placeDescription = description.getText().toString().trim();
+            final String placeDate = date.getText().toString().trim();
+            if(placeLocation.equals("") || placeDescription.equals("") || placeDate.equals(""))
+            {
+                Toast.makeText(getApplicationContext(),"Please fill all the fields",Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             final StorageReference reference = storageReference.child("Cleanliness Places").child(placeId+""+getFileExtension(mImageUri));
             reference.putFile(mImageUri)
@@ -103,6 +108,9 @@ public class AddPlaces extends AppCompatActivity {
 
                 }
             });
+        }else
+        {
+            Toast.makeText(getApplicationContext(),"Please add image",Toast.LENGTH_SHORT).show();
         }
 
     }

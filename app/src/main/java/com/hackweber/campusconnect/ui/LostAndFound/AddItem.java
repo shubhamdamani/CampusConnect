@@ -121,13 +121,13 @@ public class AddItem extends AppCompatActivity {
             successId=itemId;
             if(mImageUri==null)
             {
-                ItemInfo obj = new ItemInfo(itemId,user.getUid(),itemName_text,itemPlace_text,itemDate_text,itemDescription_text,itemContactMe_text,itemCategory);
-                databaseReference.child("LostAndFoundItems").child(itemCategory).child(itemId).setValue(obj);
+               // ItemInfo obj = new ItemInfo(itemId,user.getUid(),itemName_text,itemPlace_text,itemDate_text,itemDescription_text,itemContactMe_text,itemCategory);
+                //databaseReference.child("LostAndFoundItems").child(itemCategory).child(itemId).setValue(obj);
 
 
 
-                Toast.makeText(getApplicationContext(),"Added",Toast.LENGTH_SHORT).show();
-                sendNotification();
+                Toast.makeText(getApplicationContext(),"Please add image",Toast.LENGTH_SHORT).show();
+                //sendNotification();
             }else{
                 Log.d(TAG,"uploading");
                 final StorageReference reference = storageReference.child("LostAndFoundItems").child("LostItems").child(itemId+""+getFileExtension(mImageUri));
@@ -156,6 +156,10 @@ public class AddItem extends AppCompatActivity {
                     }
                 });
             }
+        }else
+        {
+            Toast.makeText(getApplicationContext(),"Please fill all the fields",Toast.LENGTH_SHORT).show();
+
         }
     }
 

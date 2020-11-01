@@ -46,12 +46,12 @@ public class SignUp extends AppCompatActivity {
 
     private void SignUpFunction() {
 
-        email_text = email.getText().toString();
-        userName_text = userName.getText().toString();
-        pswd_text = userPswd.getText().toString();
-        cnfPswd_text = userCnfPswd.getText().toString();
-        userPhone_text = userPhone.getText().toString();
-        if(pswd_text.equals(cnfPswd_text))
+        email_text = email.getText().toString().trim();
+        userName_text = userName.getText().toString().trim();
+        pswd_text = userPswd.getText().toString().trim();
+        cnfPswd_text = userCnfPswd.getText().toString().trim();
+        userPhone_text = userPhone.getText().toString().trim();
+        if(pswd_text.equals(cnfPswd_text) && !email_text.isEmpty() && !userName_text.isEmpty() && !userPhone_text.isEmpty() && !pswd_text.isEmpty())
         {
             mAuth.createUserWithEmailAndPassword(email_text, pswd_text)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -82,6 +82,8 @@ public class SignUp extends AppCompatActivity {
                             }
                         }
                     });
+        }else{
+            Toast.makeText(getApplicationContext(),"Please enter invalid details",Toast.LENGTH_SHORT).show();
         }
     }
 
