@@ -75,6 +75,7 @@ public class UserProfile extends AppCompatActivity {
                 finish();
             }
         });
+        admin=findViewById(R.id.admin);
         admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
