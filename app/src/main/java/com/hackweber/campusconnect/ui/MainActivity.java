@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
+import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                         break;
                     case R.id.profile:
-                        Intent i4=new Intent(MainActivity.this,MainActivity.class);
+                        Intent i4=new Intent(MainActivity.this, UserProfile.class);
                         startActivity(i4);
                         finish();
                         break;

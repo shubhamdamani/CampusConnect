@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.CleanlinessPackage.placeDetail"></activity>
+        <activity android:name=".ui.UserProfilePackage.UserProfile"></activity>
+        <activity android:name=".ui.CleanlinessPackage.placeDetail" />
         <activity android:name=".ui.CleanlinessPackage.AddPlaces" />
         <activity android:name=".ui.CleanlinessPackage.Cleanliness" />
         <activity android:name=".ui.LostAndFound.ItemDetailActivity" />
