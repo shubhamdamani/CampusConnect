@@ -122,7 +122,7 @@ public class FoodOrderActivity extends AppCompatActivity {
 
             case R.id.logout:
                 signOut();
-                Toast.makeText(this,"Signout",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Signed out",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.cart:
                 startActivity(new Intent(FoodOrderActivity.this,CartActivity.class));
