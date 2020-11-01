@@ -23,10 +23,11 @@ import org.w3c.dom.Text;
 
 public class ItemDetailActivity extends AppCompatActivity {
 
+    private static final String TAG = "ItemDetailActivityyy";
     private ImageView itemImage;
     private TextView itemCategory,itemAddress,itemPostedBy,itemContactMe,itemDescription;
-    private String category;
-    private String itemId;
+    private String category="";
+    private String itemId="";
     private DatabaseReference databaseReference;
 
 
@@ -60,6 +61,7 @@ public class ItemDetailActivity extends AppCompatActivity {
 
 
     private void fetchItem() {
+
         databaseReference.child("LostAndFoundItems").child(category).child(itemId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -67,9 +69,9 @@ public class ItemDetailActivity extends AppCompatActivity {
                 Log.d("ItemDetailActivity",dataSnapshot.getValue()+"");
                 Picasso.get().load(Uri.parse(obj.getItemUri())).placeholder(R.mipmap.ic_launcher).into(itemImage);
                 itemAddress.setText(obj.getItemPlace());
-                fetchUser(obj.getUserId());
                 itemContactMe.setText(obj.getItemContact());
                 itemDescription.setText(obj.getItemDescription());
+                fetchUser(obj.getUserId());
             }
 
             @Override

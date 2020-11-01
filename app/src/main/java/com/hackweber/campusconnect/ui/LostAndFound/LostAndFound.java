@@ -84,7 +84,6 @@ public class LostAndFound extends AppCompatActivity {
                 Intent intent = new Intent(LostAndFound.this,AddItem.class);
                 intent.putExtra("type",tabLayout.getSelectedTabPosition());
                 startActivity(intent);
-
             }
         });
     }

@@ -13,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hackweber.campusconnect.R;
+import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                         break;
                     case R.id.report:
-                        Intent i3=new Intent(MainActivity.this,MainActivity.class);
+                        Intent i3=new Intent(MainActivity.this, Cleanliness.class);
                         startActivity(i3);
                         finish();
                         break;

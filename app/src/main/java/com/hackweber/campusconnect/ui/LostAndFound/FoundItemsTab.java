@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hackweber.campusconnect.LoadingDialog;
 import com.hackweber.campusconnect.R;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class FoundItemsTab extends Fragment {
     //0 for lost 1 for found
     private String item_Category;
     private DatabaseReference databaseReference;
+    private LoadingDialog loadingDialog;
 
     @Nullable
     @Override
@@ -40,7 +42,7 @@ public class FoundItemsTab extends Fragment {
         View view = inflater.inflate(R.layout.fragment_found,container,false);
         itemList = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
+        loadingDialog = new LoadingDialog(getActivity());
 
         return view;
     }
@@ -54,6 +56,7 @@ public class FoundItemsTab extends Fragment {
         recyclerViewLost = view.findViewById(R.id.found_recylerView);
         recyclerViewLost.setHasFixedSize(true);
         adapter = new ItemAdapter(itemList,view.getContext());
+        loadingDialog.startLoadingDialog();
         fetchItems(item_Category);
     }
 
@@ -66,6 +69,7 @@ public class FoundItemsTab extends Fragment {
                     ItemInfo item = ds.getValue(ItemInfo.class);
                     itemList.add(item);
                 }
+                loadingDialog.DismissDialog();
                 recyclerViewLost.setLayoutManager(layoutManager);
                 recyclerViewLost.setAdapter(adapter);
             }

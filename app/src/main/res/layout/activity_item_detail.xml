@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:text="Posted By"
                     android:textSize="14dp"
-
+                    android:textColor="@color/black"
                     android:layout_margin="5dp"
                     android:padding="5dp"
                     android:textStyle="bold"/>
@@ -74,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="User Name"
-
+                    android:textColor="@color/black"
                     android:layout_margin="5dp"
                     android:padding="5dp"
                     android:id="@+id/item_detail_item_postedBy"/>
@@ -83,7 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Contact Me"
-
+                    android:textColor="@color/black"
                     android:layout_margin="5dp"
                     android:padding="5dp"
                     android:textSize="14dp"/>
@@ -93,6 +93,7 @@
                     android:layout_height="wrap_content"
                     android:text="Item Contact"
                     android:textSize="16dp"
+                    android:textColor="@color/black"
                     android:layout_margin="5dp"
                     android:padding="5dp"
                     android:id="@+id/item_detail_item_contactMe"/>
@@ -102,6 +103,7 @@
                     android:layout_height="wrap_content"
                     android:text="Description"
                     android:layout_margin="5dp"
+                    android:textColor="@color/black"
                     android:padding="5dp"
                     android:textSize="14dp"/>
 
@@ -112,6 +114,7 @@
                     android:textSize="16dp"
                     android:layout_margin="5dp"
                     android:padding="5dp"
+                    android:textColor="@color/black"
                     android:id="@+id/item_detail_item_description"/>
 
 

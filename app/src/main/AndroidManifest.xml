@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.LostAndFound.ItemDetailActivity"/>
+        <activity android:name=".ui.CleanlinessPackage.placeDetail"></activity>
+        <activity android:name=".ui.CleanlinessPackage.AddPlaces" />
+        <activity android:name=".ui.CleanlinessPackage.Cleanliness" />
+        <activity android:name=".ui.LostAndFound.ItemDetailActivity" />
         <activity android:name=".ui.LostAndFound.AddItem" />
         <activity
             android:name=".ui.LostAndFound.LostAndFound"
@@ -21,7 +24,7 @@
         <activity android:name=".ui.SelectedFood" />
         <activity
             android:name=".ui.FoodOrderActivity"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar"/>
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity android:name=".ui.VerificationPage" />
         <activity android:name=".ui.Login" />
         <activity android:name=".ui.SignUp" />
