@@ -17,6 +17,7 @@
             android:layout_height="50dp"
             android:text="ADMIN PANEL"
             android:id="@+id/admin"
+            android:visibility="gone"
     />
 
         <androidx.recyclerview.widget.RecyclerView

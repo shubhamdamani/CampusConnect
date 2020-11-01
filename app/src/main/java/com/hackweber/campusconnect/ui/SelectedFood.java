@@ -1,6 +1,7 @@
 package com.hackweber.campusconnect.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -10,12 +11,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.dao.StorageClass;
 import com.hackweber.campusconnect.model.FoodDetails;
+import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -23,34 +32,43 @@ public class SelectedFood extends AppCompatActivity {
 
     private StorageClass foodData;
     private int index;
+    private FoodDetails selectedfood;
     private TextView foodQuantity;
     private int dummyQuantity;
-
+    private DatabaseReference dbRef;
+    private String[] dataRetrieve;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_selected_food);
-        Intent dataRetrieve = getIntent();
-        FoodDetails specificFood = (FoodDetails) dataRetrieve.getSerializableExtra("myObject");
 
+        dataRetrieve = getIntent().getStringExtra("itemId").split("#");
         dummyQuantity = 1;  // varaible to store the Quantity Displayed ...
-
+        dbRef = FirebaseDatabase.getInstance().getReference().child("canteens").child(dataRetrieve[0]).child("menu").child(dataRetrieve[1]);
         foodData = new StorageClass();  // giving memory to storageClass object ;
-        try {
-            index = searchForFood(specificFood);
-            if (index >= 0){
-                /*
-                Food Related Details Below ...
-                 */
+        //Log.d("foodData",foodData.getCatalogData().toString());
+        for(FoodDetails fd: foodData.getCatalogData()) {
+            //Log.d("IDs",fd.getId());
+            if (fd.getId().equals(dataRetrieve[1])) {
+                selectedfood = fd;
+            }
+        }
+        //Log.d("dataRe", dataRetrieve[1]);
+        final ImageView foodImage = (ImageView) findViewById(R.id.selectedimage);
+        final TextView foodName = (TextView) findViewById(R.id.selectedfood);
+        final TextView foodPrice = (TextView) findViewById(R.id.selectedprice);
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Picasso.get().load(Uri.parse(dataSnapshot.child("url").getValue().toString())).placeholder(R.drawable.ic_launcher_background).into(foodImage);
+                foodName.setText(dataSnapshot.child("name").getValue().toString());
+                foodPrice.setText(dataSnapshot.child("price").getValue().toString());
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                ImageView foodImage = (ImageView) findViewById(R.id.selectedimage);
-                TextView foodName = (TextView) findViewById(R.id.selectedfood);
-                TextView foodPrice = (TextView) findViewById(R.id.selectedprice);
-
-                foodImage.setImageResource(foodData.getCatalogData().get(index).getFoodImage());
-                foodName.setText(foodData.getCatalogData().get(index).getFoodName());
-                foodPrice.setText(Integer.toString(foodData.getCatalogData().get(index).getPrice()));
+            }
+        });
 
                 /*
                 Food Related Details Above ...
@@ -66,16 +84,8 @@ public class SelectedFood extends AppCompatActivity {
                 Quantity Related Buttons Above ...
                  */
             }
-            else {
-                throw new IllegalArgumentException("SELECTED_FOOD_NOT_IN_DATA");
-            }
-        }
-        catch (IllegalArgumentException e){
-            e.getMessage();
-        }
 
 
-    }
 
     public void increaseQuantity(View view){
         dummyQuantity++;
@@ -100,23 +110,21 @@ public class SelectedFood extends AppCompatActivity {
         if (isContain(foodData.getFoodCart())){
             Log.i("ERROR","CONATINS ");
 
-            if (foodQuantity.getText().toString().equals(Integer.toString(foodData.getCatalogData().get(index).getFoodQuantity()))){
-                Toast.makeText(this,"Food is Already In cart", Toast.LENGTH_SHORT).show();
-            }
-            else {
-                foodData.getCatalogData().get(index).setFoodQuantity(dummyQuantity);
-                intent.putExtra("From","SelectedFood");
+                if (foodQuantity.getText().toString().equals(Integer.toString(selectedfood.getFoodQuantity()))) {
+                    Toast.makeText(this, "Food is Already In cart", Toast.LENGTH_SHORT).show();
+                } else {
+                    selectedfood.setFoodQuantity(dummyQuantity);
+                    intent.putExtra("From", dataRetrieve[0]);
 
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                }
+
             }
-        }
         else {
-            foodData.getCatalogData().get(index).setFoodQuantity(dummyQuantity);
-            foodData.getFoodCart().add(foodData.getCatalogData().get(index));
-
-            intent.putExtra("From","SelectedFood");
-
+            selectedfood.setFoodQuantity(dummyQuantity);
+            foodData.getFoodCart().add(selectedfood);
+            intent.putExtra("uid",dataRetrieve[0]);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
@@ -127,27 +135,11 @@ public class SelectedFood extends AppCompatActivity {
     private boolean isContain(ArrayList<FoodDetails> checker){
         Log.i("SIZE", Integer.toString(checker.size()));
         for (int i=0;i<checker.size();i++){
-            if (foodData.getCatalogData().get(index).getFoodName().equals(checker.get(i).getFoodName())){
+            if (selectedfood.getId().equals(checker.get(i).getId())){
                 return true;
             }
         }
         return false;
     }
-
-
-    /*
-    Below Method finds the Selected Food By Using The Linear Search Algorithm ...
-     */
-
-    private int searchForFood(FoodDetails specificFood){
-        for (int i=0;i<foodData.getCatalogData().size();i++){
-            if (specificFood.getFoodName().equals(foodData.getCatalogData().get(i).getFoodName())){
-                return i;
-            }
-        }
-        return -1;
-    }
-
-
 
 }

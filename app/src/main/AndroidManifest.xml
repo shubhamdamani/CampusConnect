@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.eventDetail"></activity>
         <activity android:name=".notifications.AdminPanel" />
+        <activity android:name=".ui.CanteenActivity"/>
         <activity android:name=".ui.UserProfilePackage.UserProfile" />
         <activity android:name=".ui.CleanlinessPackage.placeDetail" />
         <activity android:name=".ui.CleanlinessPackage.AddPlaces" />
@@ -28,13 +29,12 @@
         <activity
             android:name=".ui.FoodOrderActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
-        <activity android:name=".ui.VerificationPage" />
-        <activity android:name=".ui.Login" />
-        <activity android:name=".ui.SignUp" />
+        <activity android:name=".ui.Auth.VerificationPage" />
+        <activity android:name=".ui.Auth.Login" />
+        <activity android:name=".ui.Auth.SignUp" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

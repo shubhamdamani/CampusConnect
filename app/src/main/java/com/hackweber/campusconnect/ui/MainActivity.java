@@ -25,6 +25,7 @@ import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.adapter.NotificationAdapter;
 import com.hackweber.campusconnect.model.NotificationsItem;
 import com.hackweber.campusconnect.notifications.AdminPanel;
+import com.hackweber.campusconnect.ui.Auth.Login;
 import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
@@ -71,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         fetchNotification();
-
     }
 
     private void fetchNotification() {
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i5=new Intent(MainActivity.this,FoodOrderActivity.class);
+                Intent i5=new Intent(MainActivity.this,CanteenActivity.class);
                        startActivity(i5);
             }
         });
