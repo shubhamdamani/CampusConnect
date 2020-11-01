@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8F8F3"
     tools:context=".ui.LostAndFound.ItemDetailActivity">
 
     <LinearLayout
@@ -15,6 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_margin="10dp"
+            android:padding="10dp"
+            android:src="@mipmap/ic_launcher"
             android:id="@+id/item_detail_image"/>
 
 
@@ -45,18 +48,15 @@
                     android:layout_height="wrap_content"
                     android:text="Address"
                     android:textSize="14dp"
-
-                    android:layout_margin="5dp"
                     android:padding="5dp"
-                    android:textColor="#000000"/>
+                    android:layout_marginLeft="5dp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Item Address"
                     android:textSize="16dp"
-
-                    android:layout_margin="5dp"
-                    android:padding="5dp"
+                    android:padding="7dp"
+                    android:layout_marginLeft="10dp"
                     android:textColor="#000000"
                     android:id="@+id/item_detail_item_address"/>
 
@@ -65,27 +65,24 @@
                     android:layout_height="wrap_content"
                     android:text="Posted By"
                     android:textSize="14dp"
-                    android:textColor="@color/black"
-                    android:layout_margin="5dp"
                     android:padding="5dp"
-                    android:textStyle="bold"/>
+                    android:layout_marginLeft="5dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="User Name"
                     android:textColor="@color/black"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"
+                    android:padding="7dp"
+                    android:layout_marginLeft="10dp"
                     android:id="@+id/item_detail_item_postedBy"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Contact Me"
-                    android:textColor="@color/black"
-                    android:layout_margin="5dp"
                     android:padding="5dp"
+                    android:layout_marginLeft="5dp"
                     android:textSize="14dp"/>
 
                 <TextView
@@ -94,17 +91,16 @@
                     android:text="Item Contact"
                     android:textSize="16dp"
                     android:textColor="@color/black"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"
+                    android:padding="7dp"
+                    android:layout_marginLeft="10dp"
                     android:id="@+id/item_detail_item_contactMe"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Description"
-                    android:layout_margin="5dp"
-                    android:textColor="@color/black"
                     android:padding="5dp"
+                    android:layout_marginLeft="5dp"
                     android:textSize="14dp"/>
 
                 <TextView
@@ -112,8 +108,8 @@
                     android:layout_height="wrap_content"
                     android:text="Item Description"
                     android:textSize="16dp"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"
+                    android:padding="7dp"
+                    android:layout_marginLeft="10dp"
                     android:textColor="@color/black"
                     android:id="@+id/item_detail_item_description"/>
 
