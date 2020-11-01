@@ -68,7 +68,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         }else{
             holder.menu.setVisibility(View.GONE);
         }
-
     }
 
     public void setData(List<ItemInfo> itemList){
@@ -96,9 +95,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             itemDate = itemView.findViewById(R.id.raw_lost_and_found_item_itemDate);
             user = FirebaseAuth.getInstance().getCurrentUser();
             databaseReference = FirebaseDatabase.getInstance().getReference();
-
-
-
             menu.setOnClickListener(new View.OnClickListener() {
                 @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                 @Override

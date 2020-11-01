@@ -247,7 +247,7 @@ public class AddItem extends AppCompatActivity {
                         public void onResponse(JSONObject response) {
 
                             NotificationsItem obj = new NotificationsItem(successId,"Click to see the item",itemName_text +" is "+currentTopic,categor);
-                            databaseReference.child("Notifications").child(itemCategory).child(successId).setValue(obj);
+                            databaseReference.child("Notifications").child(successId).setValue(obj);
                             Log.d("MUR", "onResponse: ");
                         }
                     }, new Response.ErrorListener() {
