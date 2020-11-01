@@ -28,6 +28,7 @@ import com.hackweber.campusconnect.ui.MainActivity;
 import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cleanliness extends AppCompatActivity {
@@ -121,10 +122,12 @@ public class Cleanliness extends AppCompatActivity {
         databaseReference.child("Cleanliness Places").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                placeList.clear();
                 for(DataSnapshot ds: dataSnapshot.getChildren()){
                     PlaceInfo obj = ds.getValue(PlaceInfo.class);
                     placeList.add(obj);
                 }
+                Collections.reverse(placeList);
                 adapter.setData(placeList);
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setAdapter(adapter);
