@@ -6,9 +6,10 @@
     android:orientation="vertical">
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="5dp"
-        android:layout_margin="5dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="50dp"
         android:id="@+id/lost_recylerView">
 
     </androidx.recyclerview.widget.RecyclerView>

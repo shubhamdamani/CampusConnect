@@ -32,7 +32,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/lost_and_found_add_items"
         android:layout_gravity="bottom|end"
-        android:layout_margin="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="65dp"
         android:src="@drawable/ic_add">
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
     <com.google.android.material.bottomappbar.BottomAppBar
