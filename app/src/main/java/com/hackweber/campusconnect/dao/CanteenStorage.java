@@ -44,7 +44,6 @@ public class CanteenStorage {
                 Canteen canteen = ds.getValue(Canteen.class);
                 canteen.setUniqueID(ds.getKey());
                 canteens.add(canteen);
-
                 }
                 mContentGridView.setAdapter(new CanteenAdapter(mThis,getCanteensData()));
 

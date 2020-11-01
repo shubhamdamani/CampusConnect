@@ -1,6 +1,7 @@
 package com.hackweber.campusconnect.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.model.Canteen;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -37,6 +39,7 @@ public class CanteenAdapter extends ArrayAdapter<Canteen> {
 
         iCanteenName.setText(canteen.getName());
         iCanteenAddress.setText(canteen.getAddress());
+        Picasso.get().load(Uri.parse(canteen.getUrl())).placeholder(R.mipmap.ic_launcher).into(iCanteenImage);
 
 
         return convertView;
