@@ -18,17 +18,31 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hackweber.campusconnect.R;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AddItem extends AppCompatActivity {
 
@@ -43,11 +57,29 @@ public class AddItem extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private StorageReference storageReference;
     private int item_type;
+    private RequestQueue mRequestQue;
+    private String currentTopic;
+    private String successId;
+    private String URL = "https://fcm.googleapis.com/fcm/send";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
+        item_type = getIntent().getIntExtra("type",0);
+
+        mRequestQue = Volley.newRequestQueue(this);
+        FirebaseMessaging.getInstance().subscribeToTopic("lost");
+        FirebaseMessaging.getInstance().subscribeToTopic("found");
+        if(item_type==0)
+        {
+            currentTopic="lost";
+
+        }else
+        {
+
+            currentTopic="found";
+        }
         init();
 
         item_type = getIntent().getIntExtra("type",0);
@@ -59,6 +91,7 @@ public class AddItem extends AppCompatActivity {
             itemCategory="FoundItems";
             addItem.setText("Add found item");
         }
+
 
 
         chooseImage.setOnClickListener(new View.OnClickListener() {
@@ -83,11 +116,16 @@ public class AddItem extends AppCompatActivity {
         if(itemName_text!=null && itemDescription_text!=null && itemPlace_text!=null && itemDate_text!=null)
         {
             final String itemId = System.currentTimeMillis()+"";
+            successId=itemId;
             if(mImageUri==null)
             {
                 ItemInfo obj = new ItemInfo(itemId,user.getUid(),itemName_text,itemPlace_text,itemDate_text,itemDescription_text,itemContactMe_text,itemCategory);
                 databaseReference.child("LostAndFoundItems").child(itemCategory).child(itemId).setValue(obj);
+
+
+
                 Toast.makeText(getApplicationContext(),"Added",Toast.LENGTH_SHORT).show();
+                sendNotification();
             }else{
                 Log.d(TAG,"uploading");
                 final StorageReference reference = storageReference.child("LostAndFoundItems").child("LostItems").child(itemId+""+getFileExtension(mImageUri));
@@ -102,8 +140,11 @@ public class AddItem extends AppCompatActivity {
                                                 ItemInfo obj = new ItemInfo(itemId,user.getUid(),itemName_text,itemPlace_text,itemDate_text,itemDescription_text,itemContactMe_text,uri+"",itemCategory);
                                                 databaseReference.child("LostAndFoundItems").child(itemCategory).child(itemId).setValue(obj);
                                                 Toast.makeText(getApplicationContext(),"Added",Toast.LENGTH_SHORT).show();
+                                                sendNotification();
                                             }
                                         });
+
+
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -166,5 +207,60 @@ public class AddItem extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
 
+    }
+    private void sendNotification() {
+
+        JSONObject json = new JSONObject();
+        try {
+            json.put("to","/topics/"+currentTopic);
+            JSONObject notificationObj = new JSONObject();
+            notificationObj.put("title","One item " +currentTopic);
+            notificationObj.put("body","Click to see the item");
+
+            JSONObject extraData = new JSONObject();
+            extraData.put("itemId",successId);
+            if(currentTopic.equals("lost"))
+            extraData.put("category","LostItems");
+            else
+                extraData.put("category","FoundItems");
+
+
+
+
+            json.put("notification",notificationObj);
+            json.put("data",extraData);
+
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL,
+                    json,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+
+                            Log.d("MUR", "onResponse: ");
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d("MUR", "onError: "+error.networkResponse);
+                }
+            }
+            ){
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String,String> header = new HashMap<>();
+                    header.put("content-type","application/json");
+                    header.put("authorization","key=AAAAJnUq71Q:APA91bFPX6h1jweB072PbEikMvTG300HVuvun0ATUUMMYe6J-RXGp-6Sun0bcTe5jef_Ig9XnFufKFHuWgJjujnkhl25Da9Wf82GQ9JIL39QTf23r15M17PpEPZNsV9-b-ELV9OeoTgE");
+                    return header;
+                }
+            };
+            mRequestQue.add(request);
+        }
+        catch (JSONException e)
+
+        {
+            Log.d("notifE",e.toString());
+            e.printStackTrace();
+        }
     }
 }
