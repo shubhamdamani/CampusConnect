@@ -51,6 +51,13 @@
                 android:layout_height="wrap_content"
                 android:text="Update User Profile"
                 android:id="@+id/user_profile_update"></Button>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="ADMIN PANEL"
+                android:id="@+id/admin"
+
+                />
 
 
         </LinearLayout>

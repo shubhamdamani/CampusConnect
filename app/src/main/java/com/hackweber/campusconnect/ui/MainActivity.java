@@ -62,13 +62,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-        admin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i=new Intent(MainActivity.this, AdminPanel.class);
-                startActivity(i);
-            }
-        });
+
+
         fetchNotification();
     }
 

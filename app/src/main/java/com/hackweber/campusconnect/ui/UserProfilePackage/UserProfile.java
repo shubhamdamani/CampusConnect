@@ -37,6 +37,7 @@ import com.google.firebase.storage.UploadTask;
 import com.hackweber.campusconnect.LoadingDialog;
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.model.UserInfo;
+import com.hackweber.campusconnect.notifications.AdminPanel;
 import com.hackweber.campusconnect.ui.CanteenActivity;
 import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.FoodOrderActivity;
@@ -51,7 +52,7 @@ public class UserProfile extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private FirebaseUser user;
     private StorageReference storageReference;
-    private Button updateBtn;
+    private Button updateBtn,admin;
     private LoadingDialog loadingDialog;
 
     private static final int PICK_IMAGE_REQUEST = 2;
@@ -72,6 +73,14 @@ public class UserProfile extends AppCompatActivity {
                 Intent i=new Intent(UserProfile.this, CanteenActivity.class);
                 startActivity(i);
                 finish();
+            }
+        });
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(UserProfile.this, AdminPanel.class);
+                startActivity(i);
+
             }
         });
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
