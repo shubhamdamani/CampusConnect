@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.hackweber.campusconnect.R;
+import com.hackweber.campusconnect.notifications.AdminPanel;
 import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
@@ -23,20 +25,31 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
 
     private FloatingActionButton fab;
+    private Button admin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        admin=findViewById(R.id.admin);
 
         FirebaseMessaging.getInstance().subscribeToTopic("lost");
         FirebaseMessaging.getInstance().subscribeToTopic("found");
         init();
+
         if(auth.getCurrentUser()==null)
         {
             Intent intent = new Intent(MainActivity.this, Login.class);
             startActivity(intent);
             finish();
         }
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this, AdminPanel.class);
+                startActivity(i);
+
+            }
+        });
 
 
     }

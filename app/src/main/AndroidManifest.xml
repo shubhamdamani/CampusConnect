@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hackweber.campusconnect">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.UserProfilePackage.UserProfile"></activity>
+        <activity android:name=".notifications.AdminPanel"></activity>
+        <activity android:name=".ui.UserProfilePackage.UserProfile" />
         <activity android:name=".ui.CleanlinessPackage.placeDetail" />
         <activity android:name=".ui.CleanlinessPackage.AddPlaces" />
         <activity android:name=".ui.CleanlinessPackage.Cleanliness" />
@@ -37,19 +36,25 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.hackweber.campusconnect.notifications.MyFirebaseMessagingService">
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".notifications.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <category android:name="${applicationId}" />
-            </intent-filter>
-        </receiver>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
