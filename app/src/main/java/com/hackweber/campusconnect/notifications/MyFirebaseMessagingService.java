@@ -10,6 +10,8 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.hackweber.campusconnect.R;
+import com.hackweber.campusconnect.ui.LostAndFound.ItemAdapter;
+import com.hackweber.campusconnect.ui.LostAndFound.ItemDetailActivity;
 import com.hackweber.campusconnect.ui.MainActivity;
 
 import java.util.Map;
@@ -38,8 +40,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .setSmallIcon(R.drawable.ic_launcher_background);
 
         Intent intent;
-        if (category.equals("shoes")) {
-            intent = new Intent(this, MainActivity.class);
+        Log.d("category",category);
+        if (category.equals("LostItems") || category.equals("FoundItems")) {
+            intent = new Intent(this, ItemDetailActivity.class);
 
         } else {
             intent = new Intent(this, MainActivity.class);
