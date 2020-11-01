@@ -13,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hackweber.campusconnect.R;
+import com.hackweber.campusconnect.ui.Auth.Login;
 import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
@@ -33,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
-
     }
 
     private void init() {

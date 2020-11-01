@@ -1,33 +1,28 @@
 package com.hackweber.campusconnect.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 import com.hackweber.campusconnect.R;
-import com.hackweber.campusconnect.adapter.FoodAdapter;
 import com.hackweber.campusconnect.dao.StorageClass;
 import com.hackweber.campusconnect.model.FoodDetails;
+import com.hackweber.campusconnect.ui.Auth.Login;
 import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
-
-import java.io.Serializable;
 
 public class FoodOrderActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authListener;
