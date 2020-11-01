@@ -36,6 +36,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hackweber.campusconnect.R;
+import com.hackweber.campusconnect.model.NotificationsItem;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -104,6 +105,7 @@ public class AddItem extends AppCompatActivity {
         addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 uploadItem();
             }
         });
@@ -219,10 +221,17 @@ public class AddItem extends AppCompatActivity {
 
             JSONObject extraData = new JSONObject();
             extraData.put("itemId",successId);
+            final String categor;
             if(currentTopic.equals("lost"))
-            extraData.put("category","LostItems");
+            {
+                categor="LostItems";
+                extraData.put("category","LostItems");
+            }
             else
+            {
+                categor="FoundItems";
                 extraData.put("category","FoundItems");
+            }
 
 
 
@@ -237,6 +246,8 @@ public class AddItem extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
 
+                            NotificationsItem obj = new NotificationsItem(successId,"Click to see the item",itemName_text +" is "+currentTopic,categor);
+                            databaseReference.child("Notifications").child(itemCategory).child(successId).setValue(obj);
                             Log.d("MUR", "onResponse: ");
                         }
                     }, new Response.ErrorListener() {
