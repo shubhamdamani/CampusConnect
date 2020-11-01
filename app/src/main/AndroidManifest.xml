@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.eventDetail"></activity>
+        <activity android:name=".ui.eventDetail"/>
         <activity android:name=".notifications.AdminPanel" />
         <activity android:name=".ui.CanteenActivity"/>
         <activity android:name=".ui.UserProfilePackage.UserProfile" />
@@ -29,7 +29,6 @@
         <activity
             android:name=".ui.FoodOrderActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
-        <activity android:name=".ui.Auth.VerificationPage" />
         <activity android:name=".ui.Auth.Login" />
         <activity android:name=".ui.Auth.SignUp" />
         <activity android:name=".ui.MainActivity">

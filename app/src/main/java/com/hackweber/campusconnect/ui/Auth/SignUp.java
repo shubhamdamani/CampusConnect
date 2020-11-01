@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.model.UserInfo;
+import com.hackweber.campusconnect.ui.MainActivity;
 
 public class SignUp extends AppCompatActivity {
 
@@ -68,7 +69,7 @@ public class SignUp extends AppCompatActivity {
                                 user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        Intent intent = new Intent(SignUp.this, VerificationPage.class);
+                                        Intent intent = new Intent(SignUp.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();
                                     }
