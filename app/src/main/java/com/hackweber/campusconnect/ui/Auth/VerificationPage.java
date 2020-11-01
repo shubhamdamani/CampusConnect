@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.ui;
+package com.hackweber.campusconnect.ui.Auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 

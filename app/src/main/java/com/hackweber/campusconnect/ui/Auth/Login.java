@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.ui;
+package com.hackweber.campusconnect.ui.Auth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hackweber.campusconnect.R;
+import com.hackweber.campusconnect.ui.MainActivity;
 
 public class Login extends AppCompatActivity {
 

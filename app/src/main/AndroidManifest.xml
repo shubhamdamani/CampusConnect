@@ -28,9 +28,9 @@
         <activity
             android:name=".ui.FoodOrderActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
-        <activity android:name=".ui.VerificationPage" />
-        <activity android:name=".ui.Login" />
-        <activity android:name=".ui.SignUp" />
+        <activity android:name=".ui.Auth.VerificationPage" />
+        <activity android:name=".ui.Auth.Login" />
+        <activity android:name=".ui.Auth.SignUp" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
