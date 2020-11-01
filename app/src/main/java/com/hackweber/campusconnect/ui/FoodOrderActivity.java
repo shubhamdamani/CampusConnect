@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.adapter.FoodAdapter;
 import com.hackweber.campusconnect.dao.StorageClass;
@@ -24,6 +26,8 @@ import com.hackweber.campusconnect.model.FoodDetails;
 import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
+
+import java.io.Serializable;
 
 public class FoodOrderActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authListener;
@@ -34,11 +38,7 @@ public class FoodOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_order);
-
-
-        Intent dataRetrieve = getIntent();
-        canteenUID = dataRetrieve.getStringExtra("uid");
-
+        canteenUID = getIntent().getStringExtra("uid");
         auth = FirebaseAuth.getInstance();
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -95,15 +95,15 @@ public class FoodOrderActivity extends AppCompatActivity {
         };
         final GridView gridview = findViewById(R.id.gridview);
         StorageClass foodStorage = new StorageClass();
-        foodStorage.setCatalogData();
-        gridview.setAdapter(new FoodAdapter(this,foodStorage.getCatalogData()));
+        foodStorage.setMenuAdapter(canteenUID,gridview,this);
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 FoodDetails food = (FoodDetails) gridview.getItemAtPosition(position);
                 Intent activity = new Intent(FoodOrderActivity.this,SelectedFood.class);
                 // Bundle bundle = new Bundle();
-                activity.putExtra("myObject", food);
+               // Log.d("IDs",canteenUID+"."+food.getId());
+                activity.putExtra("itemId", canteenUID+"#"+food.getId());
                 startActivity(activity);
             }
         });
@@ -128,7 +128,7 @@ public class FoodOrderActivity extends AppCompatActivity {
                 Toast.makeText(this,"Signed out",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.cart:
-                startActivity(new Intent(FoodOrderActivity.this,CartActivity.class));
+                startActivity(new Intent(FoodOrderActivity.this,CartActivity.class).putExtra("uid",canteenUID));
                 default:
                     break;
         }

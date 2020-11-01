@@ -30,7 +30,6 @@ public class CanteenActivity extends AppCompatActivity {
                 activity.putExtra("uid",canteen.getUniqueID());
                 startActivity(activity);
 
-
             }
         });
     }

@@ -1,6 +1,8 @@
 package com.hackweber.campusconnect.adapter;
 
 import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import androidx.annotation.NonNull;
 
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.model.FoodDetails;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -34,17 +37,13 @@ public class FoodAdapter extends ArrayAdapter<FoodDetails> {
             LayoutInflater customInflater = LayoutInflater.from(getContext());
             convertView = customInflater.inflate(R.layout.menu_food_item,parent,false);
         }
-
         FoodDetails foodItem = getItem(position);
-
         ImageView ifoodimage = (ImageView) convertView.findViewById(R.id.foodimage);
         TextView ifoodName = (TextView) convertView.findViewById(R.id.foodname);
         TextView ifoodPrice = (TextView) convertView.findViewById(R.id.foodprice);
-
-        ifoodimage.setImageResource(foodItem.getFoodImage());
-        ifoodName.setText(foodItem.getFoodName());
-        ifoodPrice.setText(Integer.toString(foodItem.getPrice()));
-
+        Picasso.get().load(Uri.parse(foodItem.getUrl())).placeholder(R.drawable.ic_launcher_background).into(ifoodimage);
+        ifoodName.setText(foodItem.getName());
+        ifoodPrice.setText(foodItem.getPrice());
         return convertView;
     }
 }

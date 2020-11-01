@@ -30,7 +30,7 @@ public class CanteenStorage {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
         storageReference= FirebaseStorage.getInstance().getReference();
-        canteens = new ArrayList<Canteen>();
+        canteens = new ArrayList<>();
 
     }
 

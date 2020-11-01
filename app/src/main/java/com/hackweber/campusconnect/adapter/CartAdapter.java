@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.dao.StorageClass;
 import com.hackweber.campusconnect.model.FoodDetails;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -45,18 +46,15 @@ public class CartAdapter extends ArrayAdapter<FoodDetails> {
          */
 
         dummyQuantity = foodItem.getFoodQuantity();
-        int totalPrice = dummyQuantity * foodItem.getPrice();
-
+        int totalPrice = dummyQuantity * Integer.parseInt(foodItem.getPrice());
         /*
         gettingn the viewc id's
          */
         ImageView ifoodimage = (ImageView) convertView.findViewById(R.id.listimage);
         TextView ifoodName = (TextView) convertView.findViewById(R.id.listname);
         TextView ifoodPrice = (TextView) convertView.findViewById(R.id.selectedprice);
-
-
-        ifoodimage.setImageResource(foodItem.getFoodImage());
-        ifoodName.setText(foodItem.getFoodName());
+        Picasso.get().load(foodItem.getUrl()).placeholder(R.drawable.ic_launcher_background).into(ifoodimage);
+        ifoodName.setText(foodItem.getName());
         ifoodPrice.setText(Integer.toString(totalPrice));
 
 

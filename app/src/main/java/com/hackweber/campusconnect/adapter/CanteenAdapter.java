@@ -40,8 +40,6 @@ public class CanteenAdapter extends ArrayAdapter<Canteen> {
         iCanteenName.setText(canteen.getName());
         iCanteenAddress.setText(canteen.getAddress());
         Picasso.get().load(Uri.parse(canteen.getUrl())).placeholder(R.mipmap.ic_launcher).into(iCanteenImage);
-
-
         return convertView;
     }
 }
