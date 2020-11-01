@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#f8f8f3"
     tools:context=".ui.CleanlinessPackage.AddPlaces">
 
     <ScrollView
@@ -22,34 +23,47 @@
                 android:id="@+id/addPlace_image"></ImageView>
 
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:text="Chhose Image"
                 android:id="@+id/addPlace_chooseImage"></Button>
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#ffffff"
+                android:layout_height="35dp"
                 android:hint="Location of the locality"
                 android:id="@+id/addPlace_place"></EditText>
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#ffffff"
+                android:layout_height="35dp"
                 android:hint="Date"
                 android:id="@+id/addPlace_date"></EditText>
 
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#ffffff"
+                android:layout_height="35dp"
                 android:hint="Add Description"
                 android:inputType="textMultiLine"
                 android:id="@+id/addPlace_addDescription"></EditText>
 
 
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:text="Add Locality"
                 android:id="@+id/addPlace_AddPlace"></Button>
