@@ -51,10 +51,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         admin=findViewById(R.id.admin);
 
+
         FirebaseMessaging.getInstance().subscribeToTopic("lost");
         FirebaseMessaging.getInstance().subscribeToTopic("found");
         FirebaseMessaging.getInstance().subscribeToTopic("events");
         init();
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i5=new Intent(MainActivity.this,CanteenActivity.class);
+                startActivity(i5);
+            }
+        });
 
         if(auth.getCurrentUser()==null)
         {
@@ -105,13 +113,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setBackground(null);
         bottomNavigationView.getMenu().getItem(2).setEnabled(false);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i5=new Intent(MainActivity.this,CanteenActivity.class);
-                       startActivity(i5);
-            }
-        });
+
 
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(0);

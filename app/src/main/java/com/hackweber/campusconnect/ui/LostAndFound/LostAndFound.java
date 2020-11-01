@@ -13,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.hackweber.campusconnect.R;
+import com.hackweber.campusconnect.ui.CanteenActivity;
 import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.FoodOrderActivity;
 import com.hackweber.campusconnect.ui.MainActivity;
@@ -44,7 +45,7 @@ public class LostAndFound extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i5=new Intent(LostAndFound.this, FoodOrderActivity.class);
+                Intent i5=new Intent(LostAndFound.this, CanteenActivity.class);
                 startActivity(i5);
                 finish();
             }

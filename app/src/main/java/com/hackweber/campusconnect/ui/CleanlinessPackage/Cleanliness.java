@@ -22,6 +22,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hackweber.campusconnect.LoadingDialog;
 import com.hackweber.campusconnect.R;
+import com.hackweber.campusconnect.ui.CanteenActivity;
 import com.hackweber.campusconnect.ui.FoodOrderActivity;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
 import com.hackweber.campusconnect.ui.MainActivity;
@@ -54,7 +55,7 @@ public class Cleanliness extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(Cleanliness.this, FoodOrderActivity.class);
+                Intent i=new Intent(Cleanliness.this, CanteenActivity.class);
                 startActivity(i);
                 finish();
             }
