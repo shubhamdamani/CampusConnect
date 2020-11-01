@@ -10,6 +10,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/cleanliness_search_recyclerView"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cleanliness_search_recyclerView"
         android:id="@+id/cleanliness_recyclerView"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
