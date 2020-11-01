@@ -9,7 +9,7 @@ This is the user repository only.
 
 ### Prerequisites
 
-Android studio 3.0 or above and a Network connection
+Android studio 4.0 or above and a Network connection
 
 ## Getting Started
 
@@ -58,9 +58,12 @@ Android studio 3.0 or above and a Network connection
 ## ScreenShots
 
 <p>
-<img src="https://github.com/kunalmnnit/ShopClaws/blob/master/Screenshot_2018-09-27-03-49-44-654_com.kunal.shopclaws.png" alt="HomeActivity" height="400px">
-<img src="https://github.com/kunalmnnit/ShopClaws/blob/master/Screenshot_2018-09-27-03-51-28-624_com.kunal.shopclaws.png" alt="Sales Prediction" height="400px">
-<img src="https://github.com/kunalmnnit/ShopClaws/blob/master/Screenshot_2018-09-27-11-20-58-571_com.kunal.shopclaws.png" alt="Chat Support" height="400px">
+<img src="https://github.com/shubhamdamani/CampusConnect/blob/master/screenshots/Screenshot.png" alt="HomeActivity" height="400px">
+<img src="https://github.com/shubhamdamani/CampusConnect/blob/master/screenshots/Screenshot2.png" alt="Sales Prediction" height="400px">
+<img src="https://github.com/shubhamdamani/CampusConnect/blob/master/screenshots/Screenshot3.png" alt="Chat Support" height="400px">
+<img src="https://github.com/shubhamdamani/CampusConnect/blob/master/screenshots/Screenshot4.png" alt="Chat Support" height="400px">
+<img src="https://github.com/shubhamdamani/CampusConnect/blob/master/screenshots/Screenshot5.png" alt="Chat Support" height="400px">
+<img src="https://github.com/shubhamdamani/CampusConnect/blob/master/screenshots/Screenshot6.png" alt="Chat Support" height="400px">
 <p>
 
 ## Developers
