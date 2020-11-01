@@ -13,9 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.hackweber.campusconnect.R;
-import com.hackweber.campusconnect.ui.CanteenActivity;
 import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
-import com.hackweber.campusconnect.ui.FoodOrderActivity;
 import com.hackweber.campusconnect.ui.MainActivity;
 import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
 

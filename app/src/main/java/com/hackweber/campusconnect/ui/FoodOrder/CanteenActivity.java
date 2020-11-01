@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.ui;
+package com.hackweber.campusconnect.ui.FoodOrder;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +20,7 @@ import com.hackweber.campusconnect.dao.CanteenStorage;
 import com.hackweber.campusconnect.model.Canteen;
 import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
 import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
+import com.hackweber.campusconnect.ui.MainActivity;
 import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
 
 public class CanteenActivity extends AppCompatActivity {
@@ -47,7 +48,7 @@ public class CanteenActivity extends AppCompatActivity {
                 switch(item.getItemId())
                 {
                     case R.id.home:
-                        Intent i=new Intent(CanteenActivity.this,MainActivity.class);
+                        Intent i=new Intent(CanteenActivity.this, MainActivity.class);
                         startActivity(i);
                         break;
                     case R.id.lost_found:
@@ -73,7 +74,7 @@ public class CanteenActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Canteen canteen = (Canteen) canteenGridView.getItemAtPosition(position);
-                Intent activity = new Intent(CanteenActivity.this,FoodOrderActivity.class);
+                Intent activity = new Intent(CanteenActivity.this, FoodOrderActivity.class);
                 activity.putExtra("uid",canteen.getUniqueID());
                 startActivity(activity);
 
@@ -91,7 +92,7 @@ public class CanteenActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.my_orders:
-                Intent intent = new Intent(CanteenActivity.this,MyOrders.class);
+                Intent intent = new Intent(CanteenActivity.this, MyOrders.class);
                 startActivity(intent);
                 //Toast.makeText(this,"Signout",Toast.LENGTH_SHORT).show();
                 break;

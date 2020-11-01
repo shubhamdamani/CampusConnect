@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.ui;
+package com.hackweber.campusconnect.ui.FoodOrder;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,16 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.hackweber.campusconnect.R;
 import com.hackweber.campusconnect.dao.StorageClass;
 import com.hackweber.campusconnect.model.FoodDetails;
 import com.hackweber.campusconnect.ui.Auth.Login;
-import com.hackweber.campusconnect.ui.CleanlinessPackage.Cleanliness;
-import com.hackweber.campusconnect.ui.LostAndFound.LostAndFound;
-import com.hackweber.campusconnect.ui.UserProfilePackage.UserProfile;
 
 public class FoodOrderActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authListener;
@@ -65,7 +61,7 @@ public class FoodOrderActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 FoodDetails food = (FoodDetails) gridview.getItemAtPosition(position);
-                Intent activity = new Intent(FoodOrderActivity.this,SelectedFood.class);
+                Intent activity = new Intent(FoodOrderActivity.this, SelectedFood.class);
                 // Bundle bundle = new Bundle();
                // Log.d("IDs",canteenUID+"."+food.getId());
                 activity.putExtra("itemId", canteenUID+"#"+food.getId());
@@ -84,7 +80,7 @@ public class FoodOrderActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.my_orders:
-                Intent intent = new Intent(FoodOrderActivity.this,MyOrders.class);
+                Intent intent = new Intent(FoodOrderActivity.this, MyOrders.class);
                 startActivity(intent);
                 //Toast.makeText(this,"Signout",Toast.LENGTH_SHORT).show();
                 break;
@@ -93,7 +89,7 @@ public class FoodOrderActivity extends AppCompatActivity {
                 Toast.makeText(this,"Signed out",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.cart:
-                startActivity(new Intent(FoodOrderActivity.this,CartActivity.class).putExtra("uid",canteenUID));
+                startActivity(new Intent(FoodOrderActivity.this, CartActivity.class).putExtra("uid",canteenUID));
                 default:
                     break;
         }

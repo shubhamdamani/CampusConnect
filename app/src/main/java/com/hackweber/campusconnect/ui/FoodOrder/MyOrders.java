@@ -1,4 +1,4 @@
-package com.hackweber.campusconnect.ui;
+package com.hackweber.campusconnect.ui.FoodOrder;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,6 +34,7 @@ public class MyOrders extends AppCompatActivity {
     private FirebaseAuth auth;
     private ListView orderListView;
     String username;
+    private Toolbar toolbar;
     //TextView emptyText;
 
 
@@ -46,8 +48,10 @@ public class MyOrders extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders);
 
-        //emptyText = findViewById(R.id.emptyElement);
 
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("My Orders");
 
         //get firebase auth instance
         auth = FirebaseAuth.getInstance();

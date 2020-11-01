@@ -1,15 +1,13 @@
-package com.hackweber.campusconnect.ui;
+package com.hackweber.campusconnect.ui.FoodOrder;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +22,6 @@ import com.hackweber.campusconnect.dao.StorageClass;
 import com.hackweber.campusconnect.model.FoodDetails;
 import com.squareup.picasso.Picasso;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -106,7 +103,7 @@ public class SelectedFood extends AppCompatActivity {
     Showing The Items Added In Cart ...
      */
     public void addToCart(View view){
-        Intent intent = new Intent(this,FoodOrderActivity.class);
+        Intent intent = new Intent(this, FoodOrderActivity.class);
         if (isContain(foodData.getFoodCart())){
             Log.i("ERROR","CONATINS ");
 

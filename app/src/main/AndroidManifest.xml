@@ -12,10 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.eventDetail"/>
-        <activity android:name=".notifications.AdminPanel" />
+        <activity android:name=".ui.FoodOrder.CartActivity"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"/>
+        <activity android:name=".ui.FoodOrder.MyOrders"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"/>
+        <activity android:name=".ui.FoodOrder.SelectedFood" />
         <activity
-            android:name=".ui.CanteenActivity"
+            android:name=".ui.FoodOrder.FoodOrderActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity android:name=".notifications.AdminPanel" />
         <activity android:name=".ui.UserProfilePackage.UserProfile" />
         <activity android:name=".ui.CleanlinessPackage.placeDetail" />
         <activity android:name=".ui.CleanlinessPackage.AddPlaces" />
@@ -25,12 +30,6 @@
         <activity
             android:name=".ui.LostAndFound.LostAndFound"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity android:name=".ui.CartActivity" />
-        <activity android:name=".ui.MyOrders" />
-        <activity android:name=".ui.SelectedFood" />
-        <activity
-            android:name=".ui.FoodOrderActivity"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity android:name=".ui.Auth.Login" />
         <activity android:name=".ui.Auth.SignUp" />
         <activity android:name=".ui.MainActivity">
