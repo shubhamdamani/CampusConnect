@@ -30,10 +30,16 @@ public class FoodOrderActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
     private Toolbar toolbar;
+    private String canteenUID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_order);
+
+
+        Intent dataRetrieve = getIntent();
+        canteenUID = dataRetrieve.getStringExtra("uid");
+
         auth = FirebaseAuth.getInstance();
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
