@@ -68,9 +68,10 @@ Android studio 4.0 or above and a Network connection
 
 ## Developers
 
+* ### [Kunal Sevkani](https://github.com/kunalmnnit) 
+* ### [Harshit Agarwall](https://github.com/harshwall)
 * ### [Shubham Damani](https://github.com/shubhamdamani)
-
-
+* ### [Tanish Yadav](https://github.com/excelo0702)
 
 
 ## License
